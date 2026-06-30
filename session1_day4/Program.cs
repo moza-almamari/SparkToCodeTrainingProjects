@@ -65,37 +65,62 @@
             //    Console.WriteLine("you passed");
             //}
 
-                ///////////////////////////////////////
-            Console.Write("Enter your degree: ");
-            float degree = float.Parse(Console.ReadLine());
+            ///////////////////////////////////////
+            //Console.Write("Enter your degree: ");
+            //float degree = float.Parse(Console.ReadLine());
 
-            if (degree >= 0 && degree < 50)
-            {
-                Console.WriteLine("you failed");
-            }
-            else if (degree >= 50 && degree < 60)
-            {
-                Console.WriteLine("you passed with Grade: D");
-            }
-            else if (degree >= 60 && degree < 70)
-            {
-                Console.WriteLine("you passed with Grade: C");
-            }
-            else if (degree >= 70 && degree < 80)
-            {
-                Console.WriteLine("you passed with Grade: B");
-            }
-            else if (degree > 80)
-            {
+            //if (degree >= 0 && degree < 50)
+            //{
+            //    Console.WriteLine("you failed");
+            //}
+            //else if (degree >= 50 && degree < 60)
+            //{
+            //    Console.WriteLine("you passed with Grade: D");
+            //}
+            //else if (degree >= 60 && degree < 70)
+            //{
+            //    Console.WriteLine("you passed with Grade: C");
+            //}
+            //else if (degree >= 70 && degree < 80)
+            //{
+            //    Console.WriteLine("you passed with Grade: B");
+            //}
+            //else if (degree > 80)
+            //{
 
-                Console.WriteLine("you passed with Grade: A");
-            }
-            else
+            //    Console.WriteLine("you passed with Grade: A");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("you entered a wrong number");
+            //}
+
+            /////////////////////////////////////////////////////////////
+            // switch-case Statement
+            Console.WriteLine("welcome to main menu:");
+            Console.WriteLine("1.Deposite");
+            Console.WriteLine("2.Withdraw");
+            Console.WriteLine("3.Balance check");
+            Console.Write("please choose an option: ");
+
+            int option = int.Parse(Console.ReadLine());
+            switch (option)
             {
-                Console.WriteLine("you entered a wrong number");
+                case 1:
+                    Console.WriteLine("deposited");
+                    break;
+
+                case 2:
+                    Console.WriteLine("withdrawed");
+                    break;
+                case 3:
+                    Console.WriteLine("your balance = ");
+                    break;
+
+                default:
+                    Console.WriteLine("please choose a correct option");
+                    break;
             }
-
-
 
         }
     }
