@@ -203,55 +203,91 @@
 
             //////////////////////////////////////////////////////////////////
 
-            //10- Mini Calculator
-            Console.Write("Enter the first number: ");
-            double num1 = double.Parse(Console.ReadLine());
+            ////10- Mini Calculator
+            //Console.Write("Enter the first number: ");
+            //double num1 = double.Parse(Console.ReadLine());
 
-            Console.Write("Enter the second number: ");
-            double num2 = double.Parse(Console.ReadLine());
+            //Console.Write("Enter the second number: ");
+            //double num2 = double.Parse(Console.ReadLine());
 
-            Console.Write("Enter an operator (+, -, *, /, %): ");
-            char operation = char.Parse(Console.ReadLine());
+            //Console.Write("Enter an operator (+, -, *, /, %): ");
+            //char operation = char.Parse(Console.ReadLine());
 
-            switch (operation)
+            //switch (operation)
+            //{
+            //    case '+':
+            //        Console.WriteLine("Result: " + (num1 + num2));
+            //        break;
+
+            //    case '-':
+            //        Console.WriteLine("Result: " + (num1 - num2));
+            //        break;
+
+            //    case '*':
+            //        Console.WriteLine("Result: " + (num1 * num2));
+            //        break;
+
+            //    case '/':
+            //        if (num2 != 0)
+            //        {
+            //            Console.WriteLine("Result: " + (num1 / num2));
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Cannot divide by zero");
+            //        }
+            //        break;
+
+            //    case '%':
+            //        if (num2 != 0)
+            //        {
+            //            Console.WriteLine("Result: " + (num1 % num2));
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Cannot divide by zero");
+            //        }
+            //        break;
+
+            //    default:
+            //        Console.WriteLine("Invalid operator");
+            //        break;
+            //}
+
+            //////////////////////////////////////////////////////////////////
+
+            //11- Loan Eligibility System
+            Console.Write("Enter your age: ");
+            int age = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter your monthly income (OMR): ");
+            double income = double.Parse(Console.ReadLine());
+
+            Console.Write("Do you have an existing loan? (yes/no): ");
+            string loan = Console.ReadLine().ToLower();
+
+            if (age >= 21 && age <= 60 && income >= 400 && !(loan == "yes"))
             {
-                case '+':
-                    Console.WriteLine("Result: " + (num1 + num2));
-                    break;
+                Console.WriteLine("You are eligible for the personal loan.");
+            }
+            else
+            {
+                Console.WriteLine("You are not eligible.");
 
-                case '-':
-                    Console.WriteLine("Result: " + (num1 - num2));
-                    break;
+                if (age < 21 || age > 60)
+                {
+                    Console.WriteLine("Reason: Age is out of range.");
+                }
 
-                case '*':
-                    Console.WriteLine("Result: " + (num1 * num2));
-                    break;
+                if (income < 400)
+                {
+                    Console.WriteLine("Reason: Income is too low.");
+                }
 
-                case '/':
-                    if (num2 != 0)
-                    {
-                        Console.WriteLine("Result: " + (num1 / num2));
-                    }
-                    else
-                    {
-                        Console.WriteLine("Cannot divide by zero");
-                    }
-                    break;
-
-                case '%':
-                    if (num2 != 0)
-                    {
-                        Console.WriteLine("Result: " + (num1 % num2));
-                    }
-                    else
-                    {
-                        Console.WriteLine("Cannot divide by zero");
-                    }
-                    break;
-
-                default:
-                    Console.WriteLine("Invalid operator");
-                    break;
+                if (loan == "yes")
+                {
+                    Console.WriteLine("Reason: You already have an existing loan.");
+                }
             }
         }
     }
