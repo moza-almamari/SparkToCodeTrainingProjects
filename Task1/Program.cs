@@ -93,31 +93,51 @@
 
             //////////////////////////////////////////////////////////////////
 
-            //6- Temperature Converter
-            Console.Write("Enter your degree: ");
-            double degree = double.Parse(Console.ReadLine());
+            ////6- Temperature Converter
+            //Console.Write("Enter your degree: ");
+            //double degree = double.Parse(Console.ReadLine());
 
-            double fahrenheit = (degree * 9 / 5) + 32;
-            
-            if (degree < 10)
+            //double fahrenheit = (degree * 9 / 5) + 32;
+
+            //if (degree < 10)
+            //{
+            //    string weather = "Cold";
+            //    Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit +
+            //    ", The weather is " + weather);
+            //}
+            //else if (degree >= 10 && degree < 30)
+            //{
+            //    string weather = "Mild";
+            //    Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit +
+            //    ", The weather is " + weather);
+            //}
+            //else
+            //{
+            //    string weather = "Hot";
+            //    Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit +
+            //    ", The weather is " + weather);
+            //}
+
+            //////////////////////////////////////////////////////////////////
+
+            //7- Movie Ticket Pricing 
+            Console.Write("Enter your age: ");
+            int age = int.Parse(Console.ReadLine());
+
+            if (age >= 0 && age <= 12)
             {
-                string weather = "Cold";
-                Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit +
-                ", The weather is " + weather);
+                Console.WriteLine("Category: Child, Ticket Price: 2.000 OMR");
             }
-            else if (degree >= 10 && degree < 30)
+            else if (age >= 13 && age <= 59)
             {
-                string weather = "Mild";
-                Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit +
-                ", The weather is " + weather);
+                Console.WriteLine("Category: Adult, Ticket Price: 5.000 OMR");
             }
-            else
+            else if (age >= 60)
             {
-                string weather = "Hot";
-                Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit +
-                ", The weather is " + weather);
+                Console.WriteLine("Category: Senior, Ticket Price: 3.000 OMR");
+                
             }
-            
+    
         }
     }
 }
