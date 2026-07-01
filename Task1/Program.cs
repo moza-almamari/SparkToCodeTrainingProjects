@@ -11,6 +11,25 @@
             bool isStudent = true;
             Console.WriteLine("Name: " + name + ", Age: " + age + ", Height: " + height +
                 ", Student: " + isStudent);
+
+            ////////////////////////////////////////////////////////////////
+
+            //2- Rectangle Calculator
+            Console.Write("Please enter the length of the rectangle: ");
+            double length = double.Parse(Console.ReadLine());
+
+            Console.Write("Please enter the width of the rectangle: ");
+            double width = double.Parse(Console.ReadLine());
+
+            double recArea = length * width;
+            double recPerimeter = 2 * (length + width);
+
+            Console.WriteLine("Rectangle area: " + recArea
+                + ", Rectangle perimeter: " + recPerimeter);
+
+
+
+
         }
     }
 }
