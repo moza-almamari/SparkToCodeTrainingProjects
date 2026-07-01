@@ -120,24 +120,46 @@
 
             //////////////////////////////////////////////////////////////////
 
-            //7- Movie Ticket Pricing 
-            Console.Write("Enter your age: ");
-            int age = int.Parse(Console.ReadLine());
+            ////7- Movie Ticket Pricing 
+            //Console.Write("Enter your age: ");
+            //int age = int.Parse(Console.ReadLine());
 
-            if (age >= 0 && age <= 12)
+            //if (age >= 0 && age <= 12)
+            //{
+            //    Console.WriteLine("Category: Child, Ticket Price: 2.000 OMR");
+            //}
+            //else if (age >= 13 && age <= 59)
+            //{
+            //    Console.WriteLine("Category: Adult, Ticket Price: 5.000 OMR");
+            //}
+            //else if (age >= 60)
+            //{
+            //    Console.WriteLine("Category: Senior, Ticket Price: 3.000 OMR");
+
+            //}
+
+            //////////////////////////////////////////////////////////////////
+
+            //8- Restaurant Bill with Membership Discount
+            Console.Write("Enter your total bill amount : ");
+            double bill = double.Parse(Console.ReadLine());
+
+            Console.Write("Are you a loyalty member? (yes/no): ");
+            string member = Console.ReadLine().ToLower();
+
+            double discount = 0;
+            double finalAmount = bill;
+
+            if (bill > 20 && member == "yes")
             {
-                Console.WriteLine("Category: Child, Ticket Price: 2.000 OMR");
+                discount = bill * 0.15;
+                finalAmount = bill - discount;
             }
-            else if (age >= 13 && age <= 59)
-            {
-                Console.WriteLine("Category: Adult, Ticket Price: 5.000 OMR");
-            }
-            else if (age >= 60)
-            {
-                Console.WriteLine("Category: Senior, Ticket Price: 3.000 OMR");
-                
-            }
-    
+            Console.WriteLine(" ");
+            Console.WriteLine("Original Bill: " + bill );
+            Console.WriteLine("Discount: " + discount );
+            Console.WriteLine("Final Amount: " + finalAmount );
+
         }
     }
 }
