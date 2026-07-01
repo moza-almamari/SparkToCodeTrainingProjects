@@ -27,20 +27,41 @@
             //Console.WriteLine("Rectangle area: " + recArea
             //    + ", Rectangle perimeter: " + recPerimeter);
 
+            //////////////////////////////////////////////////////////////////
+
+            ////3- Even or Odd Checker
+            //Console.Write("Please Enter a number: ");
+            //int number = int.Parse(Console.ReadLine());
+
+            //if (number % 2 == 0 )
+            //{
+            //    Console.WriteLine("The number is even.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("The number is odd.");
+            //}
+
             ////////////////////////////////////////////////////////////////
 
-            //3- Even or Odd Checker
-            Console.Write("Please Enter a number: ");
-            int number = int.Parse(Console.ReadLine());
+            //4- Voting Eligibility
+            Console.Write("Please Enter a age: ");
+            int userAge = int.Parse(Console.ReadLine());
 
-            if (number % 2 == 0 )
+            Console.Write("Do you hold valid national ID (yes/no)? ");
+            bool hasNationalID = Console.ReadLine().Trim().ToLower() == "yes";
+
+            if (userAge >= 18 && hasNationalID)
             {
-                Console.WriteLine("The number is even.");
+                Console.WriteLine("You are eligible to vote.");
             }
             else
             {
-                Console.WriteLine("The number is odd.");
+                Console.WriteLine("You are not eligible to vote.");
             }
+            
+
+
+        }
     }
-}
 }
