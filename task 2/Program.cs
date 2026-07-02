@@ -32,6 +32,32 @@
             {
                 Console.WriteLine(num + " x " + i + " = " + (num * i));
             }
+            
+            //4- Password Retry
+            string correctPassword = "Spark2026";
+            string inputPassword  = "" ;
+
+            while(inputPassword != correctPassword)
+            {
+                Console.Write("Enter the password: ");
+                inputPassword = Console.ReadLine();
+                if (inputPassword == correctPassword)
+                {
+                    Console.WriteLine("Access granted.");
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect password. Try again.");
+                }
+            }
+
+
+
+
+
+
+
         }
     }
+    
 }
