@@ -102,6 +102,46 @@ namespace task_2
                 Console.WriteLine("Please enter valid numbers.");
             }
 
+            //7- Repeating Menu with Exit Option
+            int choice = 0;
+
+            while (choice != 3)
+            {
+                Console.WriteLine("1. Say Hello");
+                Console.WriteLine("2. Show Greeting");
+                Console.WriteLine("3. Exit");
+                Console.Write("Enter your choice: ");
+
+                try
+                {
+                    choice = int.Parse(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine("Hello!");
+                            break;
+
+                        case 2:
+                            Console.WriteLine("Good Morning!");
+                            break;
+
+                        case 3:
+                            Console.WriteLine("Goodbye!");
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid choice.");
+                            break;
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Please enter a number.");
+                }
+
+                Console.WriteLine();
+            }
 
 
 
