@@ -142,7 +142,19 @@ namespace task_2
 
                 Console.WriteLine();
             }
+            //8- Sum of Even Numbers Only
+            Console.Write("Enter a positive number: ");
+            int n = int.Parse(Console.ReadLine());
 
+            int sumnum = 0;
+            for (int i = 1; i <= n; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    sumnum = sumnum + i;
+                }
+            }
+            Console.WriteLine("Sum = " + sumnum);
 
 
 
