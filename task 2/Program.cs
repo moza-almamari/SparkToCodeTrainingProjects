@@ -155,8 +155,42 @@ namespace task_2
                 }
             }
             Console.WriteLine("Sum = " + sumnum);
+            
+            //9- Validated Positive Number Input
+            int number = 0;
+            bool valid = false;
 
+            do
+            {
+                try
+                {
+                    Console.Write("Enter a positive whole number: ");
+                    number = int.Parse(Console.ReadLine());
 
+                    if (number > 0)
+                    {
+                        valid = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a positive number.");
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid input. Please enter a whole number.");
+                }
+
+            } while (!valid);
+
+            int sumnumber = 0;
+
+            for (int i = 1; i <= number; i++)
+            {
+                sumnumber += i;
+            }
+
+            Console.WriteLine("Sum = " + sumnumber);
 
         }
     }
