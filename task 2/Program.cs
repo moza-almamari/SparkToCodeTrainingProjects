@@ -1,7 +1,8 @@
-﻿namespace task_2
+﻿
+namespace task_2
 {
     internal class Program
-    {
+    { 
         static void Main(string[] args)
         { 
             //1- Countdown Timer
@@ -78,14 +79,34 @@
             } while (guess != secret);
 
             Console.WriteLine("Attempts: " + attempts);
-        
+            
+            //6- Safe Division Calculator
+            try
+            {
+                Console.Write("Enter first number: ");
+                int num1 = int.Parse(Console.ReadLine());
+
+                Console.Write("Enter second number: ");
+                int num2 = int.Parse(Console.ReadLine());
+
+                int result = num1 / num2;
+
+                Console.WriteLine("Result = " + result);
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Cannot divide by zero.");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Please enter valid numbers.");
+            }
 
 
 
 
 
-
-    }
+        }
     }
     
 }
