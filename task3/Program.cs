@@ -22,6 +22,17 @@
 
             Console.WriteLine("Square = " + square);
             Console.WriteLine("Square Root = " + squareRoot);
+
+            //3- //3-  Name Formatter
+
+            Console.Write("Enter your full name: ");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Uppercase = " + name.ToUpper());
+            Console.WriteLine("Lowercase = " + name.ToLower());
+            Console.WriteLine("Number of characters = " + name.Length);
+
+
         }
     }
 }
