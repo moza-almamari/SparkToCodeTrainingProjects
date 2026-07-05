@@ -3,7 +3,7 @@
     internal class Program
     {
         static void Main(string[] args)
-        {
+        {/*
             //1- Absolute Difference
             Console.Write("Enter the first number: ");
             int numberOne = int.Parse(Console.ReadLine());
@@ -23,15 +23,22 @@
             Console.WriteLine("Square = " + square);
             Console.WriteLine("Square Root = " + squareRoot);
 
-            //3- //3-  Name Formatter
-
+            //3-  Name Formatter
             Console.Write("Enter your full name: ");
             string name = Console.ReadLine();
 
             Console.WriteLine("Uppercase = " + name.ToUpper());
             Console.WriteLine("Lowercase = " + name.ToLower());
             Console.WriteLine("Number of characters = " + name.Length);
+            */
+            //4- Subscription End Date
+            Console.Write("Enter the number of trial days: ");
+            int days = int.Parse(Console.ReadLine());
 
+            DateTime today = DateTime.Today;
+            DateTime endDate = today.AddDays(days);
+
+            Console.WriteLine("Trial End Date = " + endDate.ToString("yyyy-MM-dd"));
 
         }
     }
