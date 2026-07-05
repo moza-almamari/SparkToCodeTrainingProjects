@@ -12,6 +12,16 @@
 
             int diff = Math.Abs(numberOne - numberTwo);
             Console.WriteLine("Difference = " + diff);
+
+            //2- Power & Root Explorer
+            Console.Write("Enter a number: ");
+            double number = double.Parse(Console.ReadLine());
+
+            double square = Math.Pow(number, 2);
+            double squareRoot = Math.Sqrt(number);
+
+            Console.WriteLine("Square = " + square);
+            Console.WriteLine("Square Root = " + squareRoot);
         }
     }
 }
