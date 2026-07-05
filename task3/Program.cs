@@ -53,7 +53,7 @@
             else
             {
                 Console.WriteLine("Result = Fail");
-            }*/
+            }
             //6- Password Strength Checker
             Console.Write("Enter a password: ");
             string password = Console.ReadLine();
@@ -75,7 +75,22 @@
                 {
                     Console.WriteLine("Reason: Contains the word 'password'.");
                 }
+            }*/
+            //7- Clean Name Comparator
+            Console.Write("Enter the first name: ");
+            string name1 = Console.ReadLine().Trim().ToUpper();
+
+            Console.Write("Enter the second name: ");
+            string name2 = Console.ReadLine().Trim().ToUpper();
+
+            if (name1 == name2)
+            {
+                Console.WriteLine("Match");
+            }
+            else
+            {
+                Console.WriteLine("No Match");
             }
         }
-        }
+    }
     }
