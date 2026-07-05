@@ -39,7 +39,7 @@
             DateTime endDate = today.AddDays(days);
 
             Console.WriteLine("Trial End Date = " + endDate.ToString("yyyy-MM-dd"));
-            */
+            
             //5- Grade Rounding System
             Console.Write("Enter your exam score: ");
             double score = double.Parse(Console.ReadLine());
@@ -53,7 +53,29 @@
             else
             {
                 Console.WriteLine("Result = Fail");
+            }*/
+            //6- Password Strength Checker
+            Console.Write("Enter a password: ");
+            string password = Console.ReadLine();
+
+            if (password.Length >= 8 && !password.ToLower().Contains("password"))
+            {
+                Console.WriteLine("Strong");
+            }
+            else
+            {
+                Console.WriteLine("Weak");
+
+                if (password.Length < 8)
+                {
+                    Console.WriteLine("Reason: Less than 8 characters.");
+                }
+
+                if (password.ToLower().Contains("password"))
+                {
+                    Console.WriteLine("Reason: Contains the word 'password'.");
+                }
             }
         }
+        }
     }
-}
