@@ -75,7 +75,7 @@
                 {
                     Console.WriteLine("Reason: Contains the word 'password'.");
                 }
-            }*/
+            }
             //7- Clean Name Comparator
             Console.Write("Enter the first name: ");
             string name1 = Console.ReadLine().Trim().ToUpper();
@@ -90,7 +90,34 @@
             else
             {
                 Console.WriteLine("No Match");
+            } */
+            //8- Membership Expiry Checker
+            try
+            {
+                Console.Write("Enter membership start date (yyyy-MM-dd): ");
+                DateTime startDate = DateTime.Parse(Console.ReadLine());
+
+                Console.Write("Enter number of membership days: ");
+                int days = int.Parse(Console.ReadLine());
+
+                DateTime expiryDate = startDate.AddDays(days);
+
+                Console.WriteLine("Expiry Date = " + expiryDate.ToString("yyyy-MM-dd"));
+
+                if (expiryDate >= DateTime.Today)
+                {
+                    Console.WriteLine("Membership is Active");
+                }
+                else
+                {
+                    Console.WriteLine("Membership is Expired");
+                }
             }
+            catch
+            {
+                Console.WriteLine("Invalid input.");
+            }
+
         }
     }
     }
