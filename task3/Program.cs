@@ -30,7 +30,7 @@
             Console.WriteLine("Uppercase = " + name.ToUpper());
             Console.WriteLine("Lowercase = " + name.ToLower());
             Console.WriteLine("Number of characters = " + name.Length);
-            */
+            
             //4- Subscription End Date
             Console.Write("Enter the number of trial days: ");
             int days = int.Parse(Console.ReadLine());
@@ -39,7 +39,21 @@
             DateTime endDate = today.AddDays(days);
 
             Console.WriteLine("Trial End Date = " + endDate.ToString("yyyy-MM-dd"));
+            */
+            //5- Grade Rounding System
+            Console.Write("Enter your exam score: ");
+            double score = double.Parse(Console.ReadLine());
+            double roundedScore = Math.Round(score);
+            Console.WriteLine("Rounded Score = " + roundedScore);
 
+            if (roundedScore >= 60)
+            {
+                Console.WriteLine("Result = Pass");
+            }
+            else
+            {
+                Console.WriteLine("Result = Fail");
+            }
         }
     }
 }
