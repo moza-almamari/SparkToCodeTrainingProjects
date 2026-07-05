@@ -90,7 +90,7 @@
             else
             {
                 Console.WriteLine("No Match");
-            } */
+            } 
             //8- Membership Expiry Checker
             try
             {
@@ -116,7 +116,17 @@
             catch
             {
                 Console.WriteLine("Invalid input.");
-            }
+            }*/
+            //9- Round Up / Round Down Explorer
+            Console.Write("Enter a decimal number: ");
+            double num = Convert.ToDouble(Console.ReadLine());
+            double nearest = Math.Round(num);
+            double roundUp = Math.Ceiling(num);
+            double roundDown = Math.Floor(num);
+
+            Console.WriteLine("Nearest whole number: " + nearest);
+            Console.WriteLine("Always rounded up: " + roundUp);
+            Console.WriteLine("Always rounded down: " + roundDown);
 
         }
     }
