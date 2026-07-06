@@ -116,7 +116,7 @@
             catch
             {
                 Console.WriteLine("Invalid input.");
-            }*/
+            }
             //9- Round Up / Round Down Explorer
             Console.Write("Enter a decimal number: ");
             double num = Convert.ToDouble(Console.ReadLine());
@@ -127,7 +127,58 @@
             Console.WriteLine("Nearest whole number: " + nearest);
             Console.WriteLine("Always rounded up: " + roundUp);
             Console.WriteLine("Always rounded down: " + roundDown);
+            
+            //10- Word Position Finder
+            Console.Write("Enter a full sentence: ");
+            string sentence = Console.ReadLine();
+            Console.Write("Enter a word to search for: ");
+            string word = Console.ReadLine();
+            int firstIndex = sentence.IndexOf(word);
+            int lastIndex = sentence.LastIndexOf(word);
 
+            if (firstIndex == -1)
+            {
+                Console.WriteLine("Word not found in the sentence.");
+            }
+            else
+            {
+                Console.WriteLine("\nResults:");
+                Console.WriteLine("First occurrence index: " + firstIndex);
+                Console.WriteLine("Last occurrence index: " + lastIndex);
+
+            }*/
+            //11- One-Time Password (OTP) Generator
+            Random random = new Random();
+            int otp = random.Next(1000, 10000);
+            Console.WriteLine("Your OTP is: " + otp);
+
+            int attempts = 0;
+            while (attempts < 3)
+            {
+                try
+                {
+                    Console.Write("Enter the OTP: ");
+                    int code = int.Parse(Console.ReadLine());
+
+                    if (code == otp)
+                    {
+                        Console.WriteLine("Verified");
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect OTP");
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Please enter a valid number.");
+                }
+
+                attempts++;
+            }
+
+            Console.WriteLine("Verification Failed");
         }
-    }
+        }
     }
