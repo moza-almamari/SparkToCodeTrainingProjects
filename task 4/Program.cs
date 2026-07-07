@@ -2,9 +2,19 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        //1- Personalized Welcome Function
+        static void PrintWelcome(string name)
         {
-            
+            Console.WriteLine("Welcome, " + name + "!");
+        }
+
+        static void Main()
+        {
+            // Prompt for the task 1  
+            Console.Write("Enter your name: ");
+            string name = Console.ReadLine();
+
+            PrintWelcome(name);
         }
     }
 }
