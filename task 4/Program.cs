@@ -24,6 +24,11 @@
             Console.WriteLine("2) Help");
             Console.WriteLine("3) Exit");
         }
+        //5- Even or Odd Function
+        static bool IsEven(int number)
+        {
+            return number % 2 == 0;
+        }
         static void Main()
         {
             /*
@@ -48,10 +53,23 @@
             double fahrenheit = CelsiusToFahrenheit(celsius);
 
             Console.WriteLine("Fahrenheit = " + fahrenheit);
-            */
+            
 
             //4- Prompt for the task 4
-            DisplayMenu();
+            DisplayMenu(); */
+
+            //5- Prompt for the task 5
+            Console.Write("Enter a number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            if (IsEven(number))
+            {
+                Console.WriteLine("Even");
+            }
+            else
+            {
+                Console.WriteLine("Odd");
+            }
         }
     }
 }
