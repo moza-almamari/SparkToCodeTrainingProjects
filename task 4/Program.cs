@@ -88,6 +88,16 @@
         {
             return a * b * c;
         }
+        //10- Overloaded Area Calculator
+        static double CalculateArea(double side)
+        {
+            return side * side;
+        }
+
+        static double CalculateArea10(double length, double width)
+        {
+            return length * width;
+        }
         static void Main()
         {
             /*
@@ -151,14 +161,41 @@
             //8- Prompt for the task 8
             Console.Write("Enter a starting number: ");
             int number = int.Parse(Console.ReadLine());
-            Countdown(number); */
+            Countdown(number); 
 
             //9- Prompt for the task 9
             Console.WriteLine("Multiply(int, int) = " + Multiply(2, 3));
             Console.WriteLine("Multiply(double, double) = " + Multiply(2.5, 3.5));
-            Console.WriteLine("Multiply(int, int, int) = " + Multiply(2, 3, 4));
+            Console.WriteLine("Multiply(int, int, int) = " + Multiply(2, 3, 4)); */
 
+            //10- Prompt for the task 10
+            Console.WriteLine("1. Square");
+            Console.WriteLine("2. Rectangle");
+            Console.Write("Choose a shape: ");
+            int choice = int.Parse(Console.ReadLine());
 
-        }
+            if (choice == 1)
+            {
+                Console.Write("Enter the side: ");
+                double side = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("Area = " + CalculateArea(side));
+            }
+            else if (choice == 2)
+            {
+                Console.Write("Enter the length: ");
+                double length = double.Parse(Console.ReadLine());
+
+                Console.Write("Enter the width: ");
+                double width = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("Area = " + CalculateArea10(length, width));
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice.");
+            }
+
+            }
     }
 }
