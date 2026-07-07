@@ -64,6 +64,15 @@
                 return "F";
             }
         }
+
+        //8- Countdown Function
+        static void Countdown(int number)
+        {
+            for (int i = number; i >= 1; i--)
+            {
+                Console.WriteLine(i);
+            }
+        }
         static void Main()
         {
             /*
@@ -116,13 +125,18 @@
             double area = CalculateArea(length, width);
             double perimeter = CalculatePerimeter(length, width);
 
-            Console.WriteLine("Area = " + area + " Perimeter = " + perimeter); */
+            Console.WriteLine("Area = " + area + " Perimeter = " + perimeter); 
 
             //7- Prompt for the task 7
             Console.Write("Enter your score: ");
             int score = int.Parse(Console.ReadLine());
             string grade = GetGradeLetter(score);
-            Console.WriteLine("Grade = " + grade);
+            Console.WriteLine("Grade = " + grade); */
+
+            //8- Prompt for the task 8
+            Console.Write("Enter a starting number: ");
+            int number = int.Parse(Console.ReadLine());
+            Countdown(number);
         }
     }
 }
