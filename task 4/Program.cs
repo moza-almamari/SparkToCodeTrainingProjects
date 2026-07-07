@@ -40,6 +40,30 @@
         {
             return 2 * (length + width);
         }
+        //7- Grade Letter Function
+        static string GetGradeLetter(int score)
+        {
+            if (score >= 90)
+            {
+                return "A";
+            }
+            else if (score >= 80)
+            {
+                return "B";
+            }
+            else if (score >= 70)
+            {
+                return "C";
+            }
+            else if (score >= 60)
+            {
+                return "D";
+            }
+            else
+            {
+                return "F";
+            }
+        }
         static void Main()
         {
             /*
@@ -80,7 +104,7 @@
             else
             {
                 Console.WriteLine("Odd");
-            } */
+            } 
 
             //6- Prompt for the task 6
             Console.Write("Enter the length: ");
@@ -92,8 +116,13 @@
             double area = CalculateArea(length, width);
             double perimeter = CalculatePerimeter(length, width);
 
-            Console.WriteLine("Area = " + area + " Perimeter = " + perimeter);
-            
+            Console.WriteLine("Area = " + area + " Perimeter = " + perimeter); */
+
+            //7- Prompt for the task 7
+            Console.Write("Enter your score: ");
+            int score = int.Parse(Console.ReadLine());
+            string grade = GetGradeLetter(score);
+            Console.WriteLine("Grade = " + grade);
         }
     }
 }
