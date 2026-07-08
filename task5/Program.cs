@@ -59,7 +59,7 @@
 
             string servedCustomer = customers.Dequeue();
             Console.WriteLine("Customer served: " + servedCustomer);
-            */
+            
             //5- Array Grade Range
             int[] grades = new int[5];
             int sum = 0;
@@ -80,7 +80,37 @@
             Console.WriteLine("Lowest Grade: " + grades[0]);
             Console.WriteLine("Highest Grade: " + grades[grades.Length - 1]);
             Console.WriteLine("Average Grade: " + average);
+            */
 
+            //6- Filtered Shopping List
+            List<string> shoppingList = new List<string>();
+            string item = "";
+            while (item.ToLower() != "done")
+            {
+                Console.Write("Enter an item (or type 'done' to finish): ");
+                item = Console.ReadLine();
+
+                if (item.ToLower() != "done")
+                {
+                    shoppingList.Add(item);
+                }
+            }
+
+            Console.WriteLine("Shopping List:");
+            foreach (string shoppingItem in shoppingList)
+            {
+                Console.WriteLine("- " + shoppingItem);
+            }
+
+            Console.Write("Enter an item to remove: ");
+            string removeItem = Console.ReadLine();
+            shoppingList.Remove(removeItem);
+
+            Console.WriteLine("Shopping List After Removal:");
+            foreach (string shoppingItem in shoppingList)
+            {
+                Console.WriteLine("- " + shoppingItem);
+            }
 
 
 
