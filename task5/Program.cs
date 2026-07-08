@@ -110,7 +110,7 @@
             foreach (string shoppingItem in shoppingList)
             {
                 Console.WriteLine("- " + shoppingItem);
-            } */
+            } 
 
             //7- High Score Podium
             List<int> scores = new List<int>();
@@ -126,6 +126,39 @@
             Console.WriteLine("1st Place: " + scores[0]);
             Console.WriteLine("2nd Place: " + scores[1]);
             Console.WriteLine("3rd Place: " + scores[2]);
+            */
+
+            //8- Undo Last Action
+            Stack<string> actions = new Stack<string>();
+            string action = "";
+
+            while (action.ToLower() != "stop")
+            {
+                Console.Write("Enter an action (or type 'stop' to finish): ");
+                action = Console.ReadLine();
+
+                if (action.ToLower() != "stop")
+                {
+                    actions.Push(action);
+                }
+            }
+
+            if (actions.Count > 0)
+            {
+                Console.WriteLine("Undo: " + actions.Pop());
+            }
+
+            if (actions.Count > 0)
+            {
+                Console.WriteLine("Undo: " + actions.Pop());
+            }
+
+            Console.WriteLine("Remaining Actions:");
+
+            foreach (string item in actions)
+            {
+                Console.WriteLine(item);
+            }
 
 
 
