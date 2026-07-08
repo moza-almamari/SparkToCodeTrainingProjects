@@ -32,7 +32,7 @@
             {
                 Console.WriteLine(number + ". " + task);
                 number++;
-            }*/
+            }
 
             //3- Browsing History Stack
             Stack<string> history = new Stack<string>();
@@ -45,8 +45,21 @@
             }
 
             history.Pop();
-            Console.WriteLine("Current page:" + history.Peek());
-            
+            Console.WriteLine("Current page:" + history.Peek()); */
+
+            //4- Customer Service Queue
+            Queue<string> customers = new Queue<string>();
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write("Enter customer " + (i + 1) + ": ");
+                string name = Console.ReadLine();
+                customers.Enqueue(name);
+            }
+
+            string servedCustomer = customers.Dequeue();
+            Console.WriteLine("Customer served: " + servedCustomer);
+
 
 
 
