@@ -16,7 +16,7 @@
             foreach (int grade in grades)
             {
                 Console.WriteLine(grade);
-            }*/
+            }
             //2- Dynamic To-Do List
             List<string> todoList = new List<string>();
             for (int i = 0; i < 5; i++)
@@ -32,7 +32,21 @@
             {
                 Console.WriteLine(number + ". " + task);
                 number++;
+            }*/
+
+            //3- Browsing History Stack
+            Stack<string> history = new Stack<string>();
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write("Enter website URL " + (i + 1) + ": ");
+                string url = Console.ReadLine();
+                history.Push(url);
             }
+
+            history.Pop();
+            Console.WriteLine("Current page:" + history.Peek());
+            
 
 
 
