@@ -80,7 +80,7 @@
             Console.WriteLine("Lowest Grade: " + grades[0]);
             Console.WriteLine("Highest Grade: " + grades[grades.Length - 1]);
             Console.WriteLine("Average Grade: " + average);
-            */
+            
 
             //6- Filtered Shopping List
             List<string> shoppingList = new List<string>();
@@ -110,7 +110,22 @@
             foreach (string shoppingItem in shoppingList)
             {
                 Console.WriteLine("- " + shoppingItem);
+            } */
+
+            //7- High Score Podium
+            List<int> scores = new List<int>();
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("Enter score " + (i + 1) + ": ");
+                scores.Add(Convert.ToInt32(Console.ReadLine()));
             }
+
+            scores.Sort();
+            scores.Reverse();
+            Console.WriteLine("\nTop 3 Scores:");
+            Console.WriteLine("1st Place: " + scores[0]);
+            Console.WriteLine("2nd Place: " + scores[1]);
+            Console.WriteLine("3rd Place: " + scores[2]);
 
 
 
