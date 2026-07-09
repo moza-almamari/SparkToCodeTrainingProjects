@@ -182,8 +182,20 @@ namespace BankingSystemApp
         }
             static void ShowBalance()
             {
-                // TODO: implement this service (see Section 3 requirements)
+            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter account number: ");
+            string account = Console.ReadLine();
+            int index = accountNumbers.IndexOf(account);
+            if (index == -1)
+            {
+                Console.WriteLine("Account not found.");
+                return;
             }
+            Console.WriteLine("\nAccount Details:");
+            Console.WriteLine("Customer Name: " + customerNames[index]);
+            Console.WriteLine("Account Number: " + accountNumbers[index]);
+            Console.WriteLine("Balance: " + balances[index]);
+        }
             static void TransferAmount()
             {
                 // TODO: implement this service (see Section 3 requirements)
