@@ -188,7 +188,7 @@ namespace BankingSystemApp
             int index = accountNumbers.IndexOf(account);
             if (index == -1)
             {
-                Console.WriteLine("Account not found.");
+                Console.WriteLine("ERROR: Account not found.");
                 return;
             }
             Console.WriteLine("\nAccount Details:");
@@ -198,8 +198,51 @@ namespace BankingSystemApp
         }
             static void TransferAmount()
             {
-                // TODO: implement this service (see Section 3 requirements)
+            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter sender account number: ");
+            string senderAccount = Console.ReadLine();
+
+            Console.Write("Enter receiver account number: ");
+            string receiverAccount = Console.ReadLine();
+
+            int senderIndex = accountNumbers.IndexOf(senderAccount);
+            int receiverIndex = accountNumbers.IndexOf(receiverAccount);
+
+            if (senderIndex == -1 || receiverIndex == -1)
+            {
+                Console.WriteLine("ERROR: One or both accounts were not found.");
+                return;
             }
+            double amount;
+
+            Console.Write("Enter transfer amount: ");
+
+            try
+            {
+                amount = double.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("ERROR: Invalid amount.");
+                return;
+            }
+            if (amount <= 0)
+            {
+                Console.WriteLine("ERROR: Transfer amount must be positive.");
+                return;
+            }
+            if (amount > balances[senderIndex])
+            {
+                Console.WriteLine("ERROR: Sender does not have enough balance.");
+                return;
+            }
+            balances[senderIndex] -= amount;
+            balances[receiverIndex] += amount;
+            Console.WriteLine("\nTransfer successful!");
+            Console.WriteLine("Sender new balance: " + balances[senderIndex]);
+            Console.WriteLine("Receiver new balance: " + balances[receiverIndex]);
+
+        }
             // TODO: write two more void, no-parameter functions here for
             // your own custom services (option 6 and option 7)
         }
