@@ -22,7 +22,7 @@ namespace BankingSystemApp
                 Console.WriteLine("4. Show Balance");
                 Console.WriteLine("5. Transfer Amount");
                 Console.WriteLine("6. List All Accounts");
-                Console.WriteLine("7. <your 2nd custom service - choose a name>");
+                Console.WriteLine("7. Find Richest Customer");
                 Console.WriteLine("8. Exit");
                 Console.Write("Choose an option: ");
                 int choice;
@@ -59,6 +59,7 @@ namespace BankingSystemApp
                         break;
                     case 7:
                         // TODO: call your second custom service function here
+                        FindRichestCustomer();
                         break;
                     case 8:
                         exitApp = true;
@@ -264,5 +265,30 @@ namespace BankingSystemApp
                 Console.WriteLine("Balance: " + balances[i]);
             }
         }
+        static void FindRichestCustomer()
+        {
+            if (customerNames.Count == 0)
+            {
+                Console.WriteLine("No accounts found.");
+                return;
+            }
+
+            int richestIndex = 0;
+
+            for (int i = 1; i < balances.Count; i++)
+            {
+                if (balances[i] > balances[richestIndex])
+                {
+                    richestIndex = i;
+                }
+            }
+
+            Console.WriteLine("\nRichest Customer");
+            Console.WriteLine("Customer Name: " + customerNames[richestIndex]);
+            Console.WriteLine("Account Number: " + accountNumbers[richestIndex]);
+            Console.WriteLine("Balance: " + balances[richestIndex]);
+        }
+
+
     }
     }
