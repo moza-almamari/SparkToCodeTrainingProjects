@@ -77,25 +77,55 @@ namespace BankingSystemApp
         static void AddAccount()
         {
             // TODO: implement this service (see Section 3 requirements)
-            
+            Console.Write("Enter customer name: ");
+            string name = Console.ReadLine();
+            Console.Write("Enter account number: ");
+            string account = Console.ReadLine();
+
+            if (accountNumbers.Contains(account))
+            {
+                Console.WriteLine("ERROR: Account number already exists.");
+                return;
             }
-        static void DepositMoney()
-        {
-            // TODO: implement this service (see Section 3 requirements)
+            double balance;
+            Console.Write("Enter initial balance: ");
+            try
+            {
+                balance = double.Parse(Console.ReadLine());
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("ERROR: Invalid balance input.");
+                return;
+            }
+            if (balance < 0)
+            {
+                Console.WriteLine("ERROR: Initial balance cannot be negative.");
+                return;
+            }
+            customerNames.Add(name);
+            accountNumbers.Add(account);
+            balances.Add(balance);
+            Console.WriteLine("\nAccount created successfully!");
         }
-        static void WithdrawMoney()
-        {
-            // TODO: implement this service (see Section 3 requirements)
+            static void DepositMoney()
+            {
+                // TODO: implement this service (see Section 3 requirements)
+            }
+            static void WithdrawMoney()
+            {
+                // TODO: implement this service (see Section 3 requirements)
+            }
+            static void ShowBalance()
+            {
+                // TODO: implement this service (see Section 3 requirements)
+            }
+            static void TransferAmount()
+            {
+                // TODO: implement this service (see Section 3 requirements)
+            }
+            // TODO: write two more void, no-parameter functions here for
+            // your own custom services (option 6 and option 7)
         }
-        static void ShowBalance()
-        {
-            // TODO: implement this service (see Section 3 requirements)
-        }
-        static void TransferAmount()
-        {
-            // TODO: implement this service (see Section 3 requirements)
-        }
-        // TODO: write two more void, no-parameter functions here for
-        // your own custom services (option 6 and option 7)
     }
-}
