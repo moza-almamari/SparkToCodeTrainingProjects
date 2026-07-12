@@ -1,5 +1,6 @@
 ﻿namespace oop
 {
+    /*
     public class bankacciunt
     {
         public int accountnumber { get; set; }
@@ -10,6 +11,7 @@
         public void Deposit(double amount)
         {
             balance += amount;
+            sendemail();
         }
         public void Withdraw(double amount)
         {
@@ -17,17 +19,23 @@
             {
                 balance -= amount;
             }
+            sendemail();
         }
 
         public double checkBalance()
         {
             privateMethod();
             return balance;
+            sendemail();
         }
         private void privateMethod()
         {
             // This method is private and can only be accessed within the class
             Console.WriteLine(holderName);
+        }
+        private void sendemail()
+        {
+           //
         }
 
     }
@@ -48,12 +56,28 @@
             return email;
         }
     }
+    
      
+    */
+
+    public class BankAccount()
+    {
+
+    }
+    public class student()
+    {
+
+    }
+
+    public class Product()
+    {
+
+    }
 
     internal class Program
     {
         static void Main(string[] args)
-        {
+        { /*
             int grade1 = 60;
             string name1 = "John";
             string address1 = "123 Main St";
@@ -87,6 +111,10 @@
             B1.balance = 15000.0;
 
             double result2 = B2.checkBalance();
+            */
+            /////////////////////////////////////////////////////////////////////
+            
+
 
         }
     }
