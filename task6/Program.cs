@@ -196,7 +196,7 @@
                     case 13: BulkSaleWithRevenue(product1, product2); break;
                     //case 14: ScholarshipEligibilityCheck(); break;
                     //case 15: FullBalanceTopUpFlow(); break;
-                    //case 16: QuickAccountOpening(); break;
+                    case 16: QuickAccountOpening(); break;
                     //case 17: TotalStudentsCounter(); break;
                     //case 18: OverdrawnAccountCheck(); break;
                     //case 19: SetStudentSecurityPin(); break;
@@ -594,6 +594,26 @@
         }
 
 
+
+        //Case 16 - Quick Account Opening [Parameterized Constructor]
+        static void QuickAccountOpening()
+        {
+            Console.Write("Enter account number: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter holder name: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Enter starting balance: ");
+            double balance = Convert.ToDouble(Console.ReadLine());
+
+
+            BankAccount newAccount = new BankAccount(number, name, balance);
+
+            Console.WriteLine("\nAccount created successfully!");
+
+            newAccount.CheckBalance();
+        }
 
     }
 }
