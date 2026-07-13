@@ -191,7 +191,7 @@
                     case 8: RestockProduct(product1, product2); break;
                     case 9: TransferBetweenAccounts(account1, account2); break;
                     case 10: UpdateStudentGrade(student1, student2); break;
-                    //case 11: StudentReportCard(); break;
+                    case 11: StudentReportCard(student1, student2); break;
                     //case 12: AccountHealthStatus(); break;
                     //case 13: BulkSaleWithRevenue(); break;
                     //case 14: ScholarshipEligibilityCheck(); break;
@@ -478,8 +478,42 @@
             Console.WriteLine("Grade updated successfully");
             Console.WriteLine($"New Grade: {selectedStudent.Grade}");
         }
+        //Case 11 - Student Report Card
+        static void StudentReportCard(Student student1, Student student2)
+        {
+            Console.Write("Choose student (1 or 2): ");
+            int choice = Convert.ToInt32(Console.ReadLine());
 
+            Student selectedStudent;
 
+            if (choice == 1)
+            {
+                selectedStudent = student1;
+            }
+            else if (choice == 2)
+            {
+                selectedStudent = student2;
+            }
+            else
+            {
+                Console.WriteLine("Invalid student choice");
+                return;
+            }
+
+            Console.WriteLine("\nStudent Report Card");
+            Console.WriteLine("Name: "+ selectedStudent.Name);
+            Console.WriteLine("Address: "+selectedStudent.Address);
+            Console.WriteLine($"Grade: "+selectedStudent.Grade);
+
+            if (selectedStudent.Grade >= 60)
+            {
+                Console.WriteLine("Status  : Pass");
+            }
+            else
+            {
+                Console.WriteLine("Status  : Fail");
+            }
+        }
 
 
 
