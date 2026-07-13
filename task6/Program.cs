@@ -17,11 +17,6 @@
             if (amount > 0)
             {
                 Balance += amount;
-                Console.WriteLine($"Deposited {amount:C} to account {AccountNumber}. New balance: {Balance:C}");
-            }
-            else
-            {
-                Console.WriteLine("Deposit amount must be positive.");
             }
             SendEmail();
 
@@ -32,12 +27,13 @@
             {
                 Balance -= amount;
                 Console.WriteLine($"Withdrew {amount:C} from account {AccountNumber}. New balance: {Balance:C}");
+                SendEmail();
             }
             else
             {
                 Console.WriteLine("Invalid withdrawal amount.");
             }
-            SendEmail();
+            
         }
         public double CheckBalance()
         {
@@ -88,16 +84,35 @@
         public double Price { get; set; }
         public int StockQuantity { get; set; }
 
-        public Product(string ProductName, double Price, int StockQuantity)
-        {
-            ProductName = ProductName;
-            Price = Price;
-            StockQuantity = StockQuantity;
-        }
-
         public void Sell(int quantity)
         {
+            if (StockQuantity >= quantity)
+            {
+                StockQuantity -= quantity;
+            }
+            else {
+                Console.WriteLine("Not enough stock");
+            }
+            LogTransaction();
+        }
+        public void Restock(int quantity)
+        {
+            StockQuantity += quantity;
+            LogTransaction();
+        }
+        public double GetlnventoryValue() {
+            PrintDetails();
+            return StockQuantity * Price;
 
+        }
+        private void PrintDetails()
+        {
+            Console.WriteLine("Product Name: " + ProductName
+                + "\nPrice: " + Price
+                + "\nStock Quantity: " + StockQuantity);
+        }
+        private void LogTransaction() {
+            Console.WriteLine("Transaction logged");
         }
 
     }
