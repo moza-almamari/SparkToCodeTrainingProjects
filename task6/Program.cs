@@ -93,7 +93,7 @@
             StockQuantity += quantity;
             LogTransaction();
         }
-        public double GetlnventoryValue() {
+        public double GetInventoryValue() {
             PrintDetails();
             return StockQuantity * Price;
 
@@ -182,7 +182,7 @@
                     case 2: UpdateStudentAddress(student1, student2); break;
                     case 3: MakeDeposit(account1, account2); break;
                     case 4: MakeWithdrawal(account1, account2); break;
-                    //case 5: ViewProductDetails(); break;
+                    case 5: ViewProductDetails(product1, product2); break;
                     //case 6: RegisterStudent(); break;
                     //case 7: CompareAccountBalances(); break;
                     //case 8: RestockProduct(); break;
@@ -279,6 +279,20 @@
                 Console.WriteLine("Balance:" + account2.Balance);
             }
         }
+        //Case 5 - View Product Details
+        static void ViewProductDetails(Product product1, Product product2) { 
+            Console.Write("Choose product (1 or 2): ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            if (choice == 1)
+            {
+                Console.WriteLine("Inventory Value: " + product1.GetInventoryValue());
+            }
+            else if (choice == 2)
+            {
+                Console.WriteLine("Inventory Value: " + product2.GetInventoryValue());
+                    }
+                }
 
 
 
