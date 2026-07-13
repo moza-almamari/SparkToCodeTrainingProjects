@@ -190,7 +190,7 @@
                     case 7: CompareAccountBalances(account1, account2); break;
                     case 8: RestockProduct(product1, product2); break;
                     case 9: TransferBetweenAccounts(account1, account2); break;
-                    //case 10: UpdateStudentGrade(); break;
+                    case 10: UpdateStudentGrade(student1, student2); break;
                     //case 11: StudentReportCard(); break;
                     //case 12: AccountHealthStatus(); break;
                     //case 13: BulkSaleWithRevenue(); break;
@@ -440,7 +440,46 @@
             }
         }
 
-         
+        //Case 10 - Update Student Grade (Validated)
+        static void UpdateStudentGrade(Student student1, Student student2)
+        {
+            Console.Write("Choose student (1 or 2): ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            Student selectedStudent;
+
+            if (choice == 1)
+            {
+                selectedStudent = student1;
+            }
+            else if (choice == 2)
+            {
+                selectedStudent = student2;
+            }
+            else
+            {
+                Console.WriteLine("Invalid student choice");
+                return;
+            }
+
+            Console.Write("Enter the new grade (0-100): ");
+            int input = int.Parse(Console.ReadLine());
+
+            
+
+            if (input < 0 || input > 100)
+            {
+                Console.WriteLine("Grade must be between 0 and 100");
+                return;
+            }
+
+            selectedStudent.Grade = input;
+
+            Console.WriteLine("Grade updated successfully");
+            Console.WriteLine($"New Grade: {selectedStudent.Grade}");
+        }
+
+
 
 
 
