@@ -6,11 +6,11 @@
         public string HolderName { get; set; }
         public double Balance { get; private set; }
 
-        public BankAccount(int accountNumber, string accountHolderName, double initialBalance)
+        public BankAccount(int AccountNumber, string HolderName, double Balance)
         {
-            AccountNumber = accountNumber;
-            HolderName = accountHolderName;
-            Balance = initialBalance;
+            this.AccountNumber = AccountNumber;
+            this.HolderName = HolderName;
+            this.Balance = Balance;
         }
         public void Deposit(double amount)
         {
@@ -55,9 +55,54 @@
         }
 
     }
+    public class Student
+    {
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public int Grade { get; private set; }
+        private string email;
+        private int age;
+
+        public Student(string name, string address, int grade, string email, int age )
+        {
+            Name = name;
+            Address = address;
+            Grade = grade;
+            this.email = email;
+            this.age = age;
+        }
+        public void Register(string Email)
+        {
+            email = Email;
+            SendEmail();
+        }
+        private void SendEmail()
+        {
+            Console.WriteLine("Emil send");
+        }
+    }
+
+    public class Product
+    {
+        public string ProductName { get; set; }
+        public double Price { get; set; }
+        public int StockQuantity { get; set; }
+
+        public Product(string ProductName, double Price, int StockQuantity)
+        {
+            ProductName = ProductName;
+            Price = Price;
+            StockQuantity = StockQuantity;
+        }
+
+        public void Sell(int quantity)
+        {
+
+        }
+
+    }
+
     
-
-
 
     internal class Program
     {
