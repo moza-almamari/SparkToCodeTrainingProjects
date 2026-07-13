@@ -178,7 +178,7 @@
 
                 switch (choice)
                 {
-                    //case 1: ViewAccountDetails(); break;
+                    case 1: ViewAccountDetails(account1, account1); break;
                     //case 2: UpdateStudentAddress(); break;
                     //case 3: MakeDeposit(); break;
                     //case 4: MakeWithdrawal(); break;
@@ -207,6 +207,22 @@
                 }
             }
         }
+        //Case 1 - View Account Details
+        static void ViewAccountDetails(BankAccount account1, BankAccount account2)
+        {
+            Console.Write("Choose account (1 or 2): ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            if (choice == 1)
+            {
+                account1.CheckBalance();
+            }
+            else if (choice == 2)
+            {
+                account2.CheckBalance();
+            }
+        }
+
     }
 }
 
