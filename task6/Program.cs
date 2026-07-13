@@ -180,7 +180,7 @@
                 {
                     case 1: ViewAccountDetails(account1, account1); break;
                     case 2: UpdateStudentAddress(student1, student2); break;
-                    //case 3: MakeDeposit(); break;
+                    case 3: MakeDeposit(); break;
                     //case 4: MakeWithdrawal(); break;
                     //case 5: ViewProductDetails(); break;
                     //case 6: RegisterStudent(); break;
@@ -241,6 +241,26 @@
                 Console.WriteLine($"Student {student2.Name}'s address updated to: {student2.Address}");
             }
         }
-    } 
+
+        //Case 3 - Make a Deposit
+        static void MakeDeposit(BankAccount account1, BankAccount account2)
+        {
+            Console.Write("Choose account (1 or 2): ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter deposit amount: ");
+            double amount = Convert.ToDouble(Console.ReadLine());
+            if (choice == 1)
+            {
+                account1.Deposit(amount);
+                Console.WriteLine($"Deposited {amount:C} to account {account1.AccountNumber}. New balance: {account1.Balance:C}");
+            }
+            else if (choice == 2)
+            {
+                account2.Deposit(amount);
+                Console.WriteLine($"Deposited {amount:C} to account {account2.AccountNumber}. New balance: {account2.Balance:C}");
+            }
+        }
+
+        }
 }
 
