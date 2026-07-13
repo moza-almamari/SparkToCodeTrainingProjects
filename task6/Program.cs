@@ -67,7 +67,7 @@
         }
         private void SendEmail()
         {
-            Console.WriteLine("Emil send");
+            Console.WriteLine("Email registered successfully");
         }
     }
 
@@ -83,7 +83,8 @@
             {
                 StockQuantity -= quantity;
             }
-            else {
+            else
+            {
                 Console.WriteLine("Not enough stock");
             }
             LogTransaction();
@@ -93,7 +94,8 @@
             StockQuantity += quantity;
             LogTransaction();
         }
-        public double GetInventoryValue() {
+        public double GetInventoryValue()
+        {
             PrintDetails();
             return StockQuantity * Price;
 
@@ -104,7 +106,8 @@
                 + "\nPrice: " + Price
                 + "\nStock Quantity: " + StockQuantity);
         }
-        private void LogTransaction() {
+        private void LogTransaction()
+        {
             Console.WriteLine("Transaction logged");
         }
 
@@ -183,7 +186,7 @@
                     case 3: MakeDeposit(account1, account2); break;
                     case 4: MakeWithdrawal(account1, account2); break;
                     case 5: ViewProductDetails(product1, product2); break;
-                    //case 6: RegisterStudent(); break;
+                    case 6: RegisterStudent(student1, student2); break;
                     //case 7: CompareAccountBalances(); break;
                     //case 8: RestockProduct(); break;
                     //case 9: TransferBetweenAccounts(); break;
@@ -261,7 +264,8 @@
             }
         }
         //Case 4 - Make a Withdrawal
-        static void MakeWithdrawal(BankAccount account1, BankAccount account2) {
+        static void MakeWithdrawal(BankAccount account1, BankAccount account2)
+        {
             Console.Write("Choose account (1 or 2): ");
             int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -280,7 +284,8 @@
             }
         }
         //Case 5 - View Product Details
-        static void ViewProductDetails(Product product1, Product product2) { 
+        static void ViewProductDetails(Product product1, Product product2)
+        {
             Console.Write("Choose product (1 or 2): ");
             int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -291,13 +296,32 @@
             else if (choice == 2)
             {
                 Console.WriteLine("Inventory Value: " + product2.GetInventoryValue());
-                    }
-                }
+            }
+        }
+
+        //Case 6 - Register a Student
+        static void RegisterStudent(Student student1, Student student2)
+        {
+            Console.Write("Choose student (1 or 2): ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter email: ");
+            string email = Console.ReadLine();
+
+            if (choice == 1)
+            {
+                student1.Register(email);
+
+            }
+            else if (choice == 2)
+            {
+                student2.Register(email);
+
+            }
 
 
 
-
-
+        }
     }
 }
 
