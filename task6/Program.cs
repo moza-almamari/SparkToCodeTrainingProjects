@@ -55,18 +55,11 @@
     {
         public string Name { get; set; }
         public string Address { get; set; }
-        public int Grade { get; private set; }
+        public int Grade { get;  set; }
         private string email;
         private int age;
 
-        public Student(string name, string address, int grade, string email, int age )
-        {
-            Name = name;
-            Address = address;
-            Grade = grade;
-            this.email = email;
-            this.age = age;
-        }
+       
         public void Register(string Email)
         {
             email = Email;
@@ -123,6 +116,28 @@
     {
         static void Main(string[] args)
         {
+            BankAccount account1 = new BankAccount(1163, "Karim", 120);
+            BankAccount account2 = new BankAccount(15203, "Ali", 63);
+
+            Student student1 = new Student();
+            student1.Name = "Ali";
+            student1.Address = "Muscat";
+            student1.Grade = 65;
+            Student student2 = new Student();
+            student2.Name = "Ahmed";
+            student2.Address = "Muscat";
+            student2.Grade = 70;
+
+            Product product1 = new Product();
+            product1.ProductName = "Wireless Mouse";
+            product1.Price = 5.500;
+            product1.StockQuantity = 50;
+
+            Product product2 = new Product();
+            product2.ProductName = "Mechanical Keyboard";
+            product2.Price = 15.750;
+            product2.StockQuantity = 20;
+
             bool exitApp = false;
 
             while (exitApp == false)
