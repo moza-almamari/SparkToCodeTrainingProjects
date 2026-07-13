@@ -33,7 +33,7 @@
             {
                 Console.WriteLine("Invalid withdrawal amount.");
             }
-            
+
         }
         public double CheckBalance()
         {
@@ -42,8 +42,8 @@
         }
         private void PrintInformation()
         {
-            Console.WriteLine("Account holder name: "+ HolderName
-                + "\nBalance: "+ Balance);
+            Console.WriteLine("Account holder name: " + HolderName
+                + "\nBalance: " + Balance);
         }
         private void SendEmail()
         {
@@ -55,11 +55,11 @@
     {
         public string Name { get; set; }
         public string Address { get; set; }
-        public int Grade { get;  set; }
+        public int Grade { get; set; }
         private string email;
         private int age;
 
-       
+
         public void Register(string Email)
         {
             email = Email;
@@ -110,7 +110,7 @@
 
     }
 
-    
+
 
     internal class Program
     {
@@ -179,7 +179,7 @@
                 switch (choice)
                 {
                     case 1: ViewAccountDetails(account1, account1); break;
-                    //case 2: UpdateStudentAddress(); break;
+                    case 2: UpdateStudentAddress(student1, student2); break;
                     //case 3: MakeDeposit(); break;
                     //case 4: MakeWithdrawal(); break;
                     //case 5: ViewProductDetails(); break;
@@ -223,6 +223,24 @@
             }
         }
 
-    }
+        //Case 2 - Update Student Address
+        static void UpdateStudentAddress(Student student1, Student student2)
+        {
+            Console.Write("Choose student (1 or 2): ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter new address: ");
+            string newAddress = Console.ReadLine();
+            if (choice == 1)
+            {
+                student1.Address = newAddress;
+                Console.WriteLine($"Student {student1.Name}'s address updated to: {student1.Address}");
+            }
+            else if (choice == 2)
+            {
+                student2.Address = newAddress;
+                Console.WriteLine($"Student {student2.Name}'s address updated to: {student2.Address}");
+            }
+        }
+    } 
 }
 
