@@ -189,7 +189,7 @@
                     case 6: RegisterStudent(student1, student2); break;
                     case 7: CompareAccountBalances(account1, account2); break;
                     case 8: RestockProduct(product1, product2); break;
-                    //case 9: TransferBetweenAccounts(); break;
+                    case 9: TransferBetweenAccounts(account1, account2); break;
                     //case 10: UpdateStudentGrade(); break;
                     //case 11: StudentReportCard(); break;
                     //case 12: AccountHealthStatus(); break;
@@ -377,6 +377,73 @@
                 Console.WriteLine("Stock Level: Well Stocked");
             }
         }
+
+        //Case 9 - Transfer Between Accounts
+        static void TransferBetweenAccounts (BankAccount account1, BankAccount account2)
+        {
+            Console.Write("Choose source account (1 or 2): ");
+            int sourceChoice = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Choose destination account (1 or 2): ");
+            int destinationChoice = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter transfer amount: ");
+            double amount = Convert.ToDouble(Console.ReadLine());
+
+            BankAccount sourceAccount;
+            BankAccount destinationAccount;
+
+            if (sourceChoice == 1)
+            {
+                sourceAccount = account1;
+            }
+            else if (sourceChoice == 2)
+            {
+                sourceAccount = account2;
+            }
+            else
+            {
+                Console.WriteLine("Invalid source account");
+                return;
+            }
+
+            if (destinationChoice == 1)
+            {
+                destinationAccount = account1;
+            }
+            else if (destinationChoice == 2)
+            {
+                destinationAccount = account2;
+            }
+            else
+            {
+                Console.WriteLine("Invalid destination account");
+                return;
+            }
+
+            if (sourceAccount == destinationAccount)
+            {
+                Console.WriteLine("Source and destination accounts cannot be the same");
+                return;
+            }
+
+            if (sourceAccount.Balance >= amount)
+            {
+                sourceAccount.Withdraw(amount);
+                destinationAccount.Deposit(amount);
+
+                Console.WriteLine("Transfer completed successfully");
+            }
+            else
+            {
+                Console.WriteLine("Transfer failed, Insufficient balance");
+            }
+        }
+
+         
+
+
+
 
     }
 }
