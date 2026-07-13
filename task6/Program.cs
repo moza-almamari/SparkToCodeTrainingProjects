@@ -193,7 +193,7 @@
                     case 10: UpdateStudentGrade(student1, student2); break;
                     case 11: StudentReportCard(student1, student2); break;
                     case 12: AccountHealthStatus(account1,account2); break;
-                    //case 13: BulkSaleWithRevenue(); break;
+                    case 13: BulkSaleWithRevenue(product1, product2); break;
                     //case 14: ScholarshipEligibilityCheck(); break;
                     //case 15: FullBalanceTopUpFlow(); break;
                     //case 16: QuickAccountOpening(); break;
@@ -549,7 +549,49 @@
                 Console.WriteLine("Status: Premium");
             }
         }
-        
+        //Case 13 - Bulk Sale With Revenue Calculation
+        static void BulkSaleWithRevenue(Product product1, Product product2)
+        {
+            Console.Write("Choose product (1 or 2): ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            Product selectedProduct;
+
+            if (choice == 1)
+            {
+                selectedProduct = product1;
+            }
+            else if (choice == 2)
+            {
+                selectedProduct = product2;
+            }
+            else
+            {
+                Console.WriteLine("Invalid product choice.");
+                return;
+            }
+
+            Console.Write("Enter quantity to sell: ");
+            int quantity = Convert.ToInt32(Console.ReadLine());
+
+            if (selectedProduct.StockQuantity < quantity)
+            {
+                int neededUnits = quantity - selectedProduct.StockQuantity;
+
+                Console.WriteLine("Not enough stock");
+                Console.WriteLine("You need "+ neededUnits +" more units");
+            }
+            else
+            {
+                selectedProduct.Sell(quantity);
+
+                double revenue = quantity * selectedProduct.Price;
+
+                Console.WriteLine("Sale completed successfully");
+                Console.WriteLine($"Total Revenue: "+ revenue);
+                Console.WriteLine($"Remaining Stock: "+ selectedProduct.StockQuantity);
+            }
+        }
 
 
 
