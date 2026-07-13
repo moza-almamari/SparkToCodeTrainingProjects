@@ -188,7 +188,7 @@
                     case 5: ViewProductDetails(product1, product2); break;
                     case 6: RegisterStudent(student1, student2); break;
                     case 7: CompareAccountBalances(account1, account2); break;
-                    //case 8: RestockProduct(); break;
+                    case 8: RestockProduct(product1, product2); break;
                     //case 9: TransferBetweenAccounts(); break;
                     //case 10: UpdateStudentGrade(); break;
                     //case 11: StudentReportCard(); break;
@@ -334,6 +334,47 @@
             else
             {
                 Console.WriteLine("Both accounts have the same balance.");
+            }
+        }
+
+        //Case 8 - Restock Product & Stock Level Check
+        static void RestockProduct(Product product1, Product product2)
+        {
+            Console.Write("Choose product (1 or 2): ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter quantity to add: ");
+            int quantity = Convert.ToInt32(Console.ReadLine());
+
+            Product chossenProduct;
+
+            if (choice == 1)
+            {
+                chossenProduct = product1;
+            }
+            else if (choice == 2)
+            {
+                chossenProduct = product2;
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice.");
+                return;
+            }
+
+            chossenProduct.Restock(quantity);
+
+            if (chossenProduct.StockQuantity < 10)
+            {
+                Console.WriteLine("Stock Level: Low");
+            }
+            else if (chossenProduct.StockQuantity < 50)
+            {
+                Console.WriteLine("Stock Level: Moderate");
+            }
+            else
+            {
+                Console.WriteLine("Stock Level: Well Stocked");
             }
         }
 
