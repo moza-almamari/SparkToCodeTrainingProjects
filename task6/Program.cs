@@ -192,7 +192,7 @@
                     case 9: TransferBetweenAccounts(account1, account2); break;
                     case 10: UpdateStudentGrade(student1, student2); break;
                     case 11: StudentReportCard(student1, student2); break;
-                    //case 12: AccountHealthStatus(); break;
+                    case 12: AccountHealthStatus(account1,account2); break;
                     //case 13: BulkSaleWithRevenue(); break;
                     //case 14: ScholarshipEligibilityCheck(); break;
                     //case 15: FullBalanceTopUpFlow(); break;
@@ -514,7 +514,42 @@
                 Console.WriteLine("Status  : Fail");
             }
         }
+        //Case 12 - Account Health Status
+        static void AccountHealthStatus(BankAccount account1, BankAccount account2)
+        {
+            Console.Write("Choose account (1 or 2): ");
+            int choice = Convert.ToInt32(Console.ReadLine());
 
+            BankAccount selectedAccount;
+
+            if (choice == 1)
+            {
+                selectedAccount = account1;
+            }
+            else if (choice == 2)
+            {
+                selectedAccount = account2;
+            }
+            else
+            {
+                Console.WriteLine("Invalid account choice");
+                return;
+            }
+
+            if (selectedAccount.Balance < 50)
+            {
+                Console.WriteLine("Status: Low Balance");
+            }
+            else if (selectedAccount.Balance <= 1000)
+            {
+                Console.WriteLine("Status: Healthy");
+            }
+            else
+            {
+                Console.WriteLine("Status: Premium");
+            }
+        }
+        
 
 
 
