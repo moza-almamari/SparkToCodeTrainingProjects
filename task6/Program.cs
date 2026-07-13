@@ -187,7 +187,7 @@
                     case 4: MakeWithdrawal(account1, account2); break;
                     case 5: ViewProductDetails(product1, product2); break;
                     case 6: RegisterStudent(student1, student2); break;
-                    //case 7: CompareAccountBalances(); break;
+                    case 7: CompareAccountBalances(account1, account2); break;
                     //case 8: RestockProduct(); break;
                     //case 9: TransferBetweenAccounts(); break;
                     //case 10: UpdateStudentGrade(); break;
@@ -318,10 +318,25 @@
                 student2.Register(email);
 
             }
-
-
-
         }
+
+        //Case 7 - Compare Two Account Balances
+        static void CompareAccountBalances(BankAccount account1, BankAccount account2)
+        {
+            if (account1.Balance > account2.Balance)
+            {
+                Console.WriteLine(account1.HolderName + "has more money.");
+            }
+            else if (account2.Balance > account1.Balance)
+            {
+                Console.WriteLine(account2.HolderName + "has more money");
+            }
+            else
+            {
+                Console.WriteLine("Both accounts have the same balance.");
+            }
+        }
+
     }
 }
 
