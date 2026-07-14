@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="oop_s2/oop_s2.csproj" Id="6d64d9c6-3024-421d-b75b-b3f51021c1f9" />
   <Project Path="oop/oop.csproj" Id="ad4bc0da-286a-4215-a388-237721e6e9a2" />
   <Project Path="bankingManagement/bankingManagement.csproj" Id="5a40a956-bb66-454b-88f0-1b17afc057d9" />
   <Project Path="session1_day4/session1_day4.csproj" Id="aab2144c-bd8d-4054-90a0-6a44bf7a9514" />
