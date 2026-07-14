@@ -58,7 +58,73 @@
     {
         static void Main(string[] args)
         {
-            
+            List<Room> rooms = new List<Room>();
+            List<Guest> guests = new List<Guest>();
+
+            bool exitApp = false;
+
+            while (exitApp == false)
+            {
+                Console.WriteLine("\n================================================");
+                Console.WriteLine("\nGRAND VISTA HOTEL — MANAGEMENT SYSTEM");
+                Console.WriteLine("\n================================================");
+                Console.WriteLine(" 1. Add New Room");
+                Console.WriteLine(" 2. Register New Guest");
+                Console.WriteLine(" 3. Book a Room for a Guest");
+                Console.WriteLine(" 4. View All Rooms");
+                Console.WriteLine(" 5. View All Guests");
+                Console.WriteLine(" 6. Search & Filter Rooms");
+                Console.WriteLine(" 7. Guest & Booking Statistics");
+                Console.WriteLine(" 8. Update Room Price");
+                Console.WriteLine(" 9. Guest Lookup by Name");
+                Console.WriteLine("10. Room Type Breakdown Report");
+                Console.WriteLine("11. Check Out a Guest");
+                Console.WriteLine("12. Remove Unavailable Rooms");
+                Console.WriteLine("13. Extend Guest Stay");
+                Console.WriteLine("14. Highest Revenue Booking");
+                Console.WriteLine("15. Guest Pagination Viewer");
+                Console.WriteLine("0. Exit");
+                Console.WriteLine("================================================");
+                Console.Write("Enter your choice: ");
+
+                int choice;
+                try
+                {
+                    choice = int.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid input. Please enter a number from 1 to 20.");
+                    continue;
+                }
+
+                switch (choice)
+                {
+                    //case 1: 
+                    //case 2:
+                    //case 3: 
+                    //case 4: 
+                    //case 5: 
+                    //case 6: 
+                    //case 7: 
+                    //case 8: 
+                    //case 9: 
+                    //case 10: 
+                    //case 11: 
+                    //case 12: 
+                    //case 13: 
+                    //case 14: 
+                    case 15:
+
+                    case 0:
+                        exitApp = true;
+                        Console.WriteLine("Goodbye!");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option, please choose between 1 and 15.");
+                        break;
+                }
+            }
         }
     }
 }
