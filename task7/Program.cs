@@ -23,7 +23,37 @@
         }
     }
 
-    
+    public class Guest
+    {
+        public int gustId { get; set; }
+        public string gustName { get; set; }
+        public int roomNumber { get; set; }
+        public bool checkInDate { get; set; }
+        public int totalNights { get; set; }
+
+        public Guest(int gustId, string gustName, int roomNumber, bool checkInDate, int totalNights)
+        {
+            this.gustId = gustId;
+            this.gustName = gustName;
+            this.roomNumber = roomNumber;
+            this.checkInDate = checkInDate;
+            this.totalNights = totalNights;
+        }
+        public void displayGuest()
+        {
+            Console.WriteLine($"Guest ID: {gustId}");
+            Console.WriteLine($"Guest Name: {gustName}");
+            Console.WriteLine($"Room Number: {roomNumber}");
+            Console.WriteLine($"Check In Date: {checkInDate}");
+            Console.WriteLine($"Total Nights: {totalNights}");
+        }
+        public void calculateTotalCost(double pricePerNight)
+        {
+            double totalCost = pricePerNight * totalNights;
+            Console.WriteLine($"Total Cost: {totalCost}");
+        }
+
+    }
     internal class Program
     {
         static void Main(string[] args)
