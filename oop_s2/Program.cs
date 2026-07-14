@@ -27,6 +27,18 @@
             accounts.Add(new BankAccount(3, 210));
             accounts.Add(new BankAccount(4, 113));
 
+            Console.Write("enter your name: ");
+            string userName = Console.ReadLine();
+            accounts[0].holderName = userName;
+            accounts[1].holderName = "Ali";
+            accounts[2].holderName = "Sara";
+            accounts[3].holderName = "Omar";
+
+            List<BankAccount> selectedAccounts = accounts.Where(b => b.balance > 150).ToList();
+            if (selectedAccounts.Count > 0)
+            {
+                foreach (BankAccount account in selectedAccounts) { Console.WriteLine(account.holderName); }
+            }
         }
     }
 }
