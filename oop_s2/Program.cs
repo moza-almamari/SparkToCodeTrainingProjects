@@ -39,6 +39,17 @@
             {
                 foreach (BankAccount account in selectedAccounts) { Console.WriteLine(account.holderName); }
             }
+
+
+            Console.Write("Enter your account number: ");
+            int accountNumner = int.Parse(Console.ReadLine());
+
+            BankAccount selectedAccount = accounts.FirstOrDefault(b => b.AccountId == accountNumner);
+            if (selectedAccount != null)
+            {
+                selectedAccount.checkBalance();
+
+            }
         }
     }
 }
