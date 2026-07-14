@@ -194,7 +194,7 @@
                     case 11: StudentReportCard(student1, student2); break;
                     case 12: AccountHealthStatus(account1,account2); break;
                     case 13: BulkSaleWithRevenue(product1, product2); break;
-                    //case 14: ScholarshipEligibilityCheck(); break;
+                    case 14: ScholarshipEligibilityCheck( student1,  student2, account1,  account2); break;
                     //case 15: FullBalanceTopUpFlow(); break;
                     case 16: QuickAccountOpening(); break;
                     //case 17: TotalStudentsCounter(); break;
@@ -592,7 +592,73 @@
                 Console.WriteLine($"Remaining Stock: "+ selectedProduct.StockQuantity);
             }
         }
+        //Case 14 - Scholarship Eligibility Check
+        static void ScholarshipEligibilityCheck(Student student1, Student student2,
+                                   BankAccount account1, BankAccount account2)
+        {
+            Console.Write("Choose student (1 or 2): ");
+            int studentChoice = Convert.ToInt32(Console.ReadLine());
 
+            Student selectedStudent;
+
+            if (studentChoice == 1)
+            {
+                selectedStudent = student1;
+            }
+            else if (studentChoice == 2)
+            {
+                selectedStudent = student2;
+            }
+            else
+            {
+                Console.WriteLine("Invalid student choice.");
+                return;
+            }
+
+
+            Console.Write("Choose account (1 or 2): ");
+            int accountChoice = Convert.ToInt32(Console.ReadLine());
+
+            BankAccount selectedAccount;
+
+            if (accountChoice == 1)
+            {
+                selectedAccount = account1;
+            }
+            else if (accountChoice == 2)
+            {
+                selectedAccount = account2;
+            }
+            else
+            {
+                Console.WriteLine("Invalid account choice.");
+                return;
+            }
+
+
+            bool gradeCondition = selectedStudent.Grade >= 80;
+            bool balanceCondition = selectedAccount.Balance >= 100;
+
+
+            if (gradeCondition && balanceCondition)
+            {
+                Console.WriteLine("Eligible");
+            }
+            else
+            {
+                Console.WriteLine("Not Eligible");
+
+                if (!gradeCondition)
+                {
+                    Console.WriteLine("Failed: Student grade is below 80.");
+                }
+
+                if (!balanceCondition)
+                {
+                    Console.WriteLine("Failed: Account balance is below 100.");
+                }
+            }
+        }
 
 
         //Case 16 - Quick Account Opening [Parameterized Constructor]
