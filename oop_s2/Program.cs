@@ -50,6 +50,8 @@
                 selectedAccount.checkBalance();
 
             }
+
+            bool result = accounts.Any(b => b.balance > 10000);
         }
     }
 }
