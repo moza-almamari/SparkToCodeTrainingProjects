@@ -107,7 +107,7 @@
 
                 switch (choice)
                 {
-                    //case 1: 
+                    case 1: addNewRoom(rooms); break;
                     //case 2:
                     //case 3: 
                     //case 4: 
@@ -133,5 +133,39 @@
                 }
             }
         }
+
+        public static void addNewRoom(List<Room> rooms)
+        {
+            Console.Write("Enter Room Number: ");
+            int roomNumber = int.Parse(Console.ReadLine());
+            if (roomNumber <= 0)
+            {
+                Console.WriteLine("Invalid room number");
+                return;
+            }
+
+            bool roomExists = rooms.Any(r => r.roomNumber == roomNumber);
+            if (roomExists)
+            {
+                Console.WriteLine("Room already exists.");
+                return;
+            }
+
+            Console.Write("Enter Room Type (Single/Double/Suite): ");
+            string roomType = Console.ReadLine();
+            Console.Write("Enter Price Per Night: ");
+            double pricePerNight = double.Parse(Console.ReadLine());
+            if (pricePerNight <= 0)
+            {
+                Console.WriteLine("Invalid price");
+                return;
+            }
+
+
+            Room newRoom = new Room(roomNumber, roomType, pricePerNight, true);
+            rooms.Add(newRoom);
+            Console.WriteLine("\nNew room added successfully!");
+        }
+    } 
     }
-}
+
