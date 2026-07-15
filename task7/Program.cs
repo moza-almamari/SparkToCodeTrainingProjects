@@ -1,62 +1,6 @@
 ﻿using System.Xml.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace task7
-{
-    public class Room
-    {
-        public int roomNumber { get; set; }
-        public string roomType { get; set; }
-        public double pricePerNight { get; set; }
-        public bool isAvailable { get; set; }
-
-        public Room(int roomNumber, string roomType, double pricePerNight, bool isAvailable)
-        {
-            this.roomNumber = roomNumber;
-            this.roomType = roomType;
-            this.pricePerNight = pricePerNight;
-            this.isAvailable = isAvailable;
-        }
-        public void displayRoom()
-        {
-            Console.WriteLine($"Room Number: {roomNumber}");
-            Console.WriteLine($"Room Type: {roomType}");
-            Console.WriteLine($"Price Per Night: {pricePerNight}");
-            Console.WriteLine($"Is Available: {isAvailable}");
-        }
-    }
-
-    public class Guest
-    {
-        public string guestId { get; set; }
-        public string guestName { get; set; }
-        public string roomNumber { get; set; }
-        public string checkInDate { get; set; }
-        public int totalNights { get; set; }
-
-        public Guest(string guestId, string guestName, string roomNumber, string checkInDate, int totalNights)
-        {
-            this.guestId = guestId;
-            this.guestName = guestName;
-            this.roomNumber = roomNumber;
-            this.checkInDate = checkInDate;
-            this.totalNights = totalNights;
-        }
-        public void displayGuest()
-        {
-            Console.WriteLine($"Guest ID: {guestId}");
-            Console.WriteLine($"Guest Name: {guestName}");
-            Console.WriteLine($"Room Number: {roomNumber}");
-            Console.WriteLine($"Check In Date: {checkInDate}");
-            Console.WriteLine($"Total Nights: {totalNights}");
-        }
-        public double calculateTotalCost(double pricePerNight)
-        {
-            double totalCost = pricePerNight * totalNights;
-            return totalCost;
-        }
-
-    }
+namespace HotelManagementSystem;
     internal class Program
     {
         static void Main(string[] args)
@@ -570,5 +514,5 @@ namespace task7
         }
 
     }
-}
+
 

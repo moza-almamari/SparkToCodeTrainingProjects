@@ -1,5 +1,5 @@
 <Solution>
   <Project Path="session1_day4/session1_day4.csproj" Id="aab2144c-bd8d-4054-90a0-6a44bf7a9514" />
   <Project Path="Task1/Task1.csproj" Id="e40ad821-9319-44a0-9d19-c500b059e24b" />
-  <Project Path="task7/task7.csproj" Id="707e178b-0928-44e5-bc78-c0b14ce94ebe" />
+  <Project Path="task7/HotelManagementSystem.csproj" Id="707e178b-0928-44e5-bc78-c0b14ce94ebe" />
 </Solution>
