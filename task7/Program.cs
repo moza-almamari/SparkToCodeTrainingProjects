@@ -1,4 +1,7 @@
-﻿namespace task7
+﻿using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace task7
 {
     public class Room
     {
@@ -25,13 +28,13 @@
 
     public class Guest
     {
-        public int gustId { get; set; }
+        public string gustId { get; set; }
         public string gustName { get; set; }
-        public int roomNumber { get; set; }
-        public bool checkInDate { get; set; }
+        public string roomNumber { get; set; }
+        public string checkInDate { get; set; }
         public int totalNights { get; set; }
 
-        public Guest(int gustId, string gustName, int roomNumber, bool checkInDate, int totalNights)
+        public Guest(string gustId, string gustName, string roomNumber, string checkInDate, int totalNights)
         {
             this.gustId = gustId;
             this.gustName = gustName;
@@ -108,7 +111,7 @@
                 switch (choice)
                 {
                     case 1: addNewRoom(rooms); break;
-                    //case 2:
+                    case 2: registerNewGuest(guests); break;
                     //case 3: 
                     //case 4: 
                     //case 5: 
@@ -134,6 +137,7 @@
             }
         }
 
+        //Case 01 Add New Room
         public static void addNewRoom(List<Room> rooms)
         {
             Console.Write("Enter Room Number: ");
@@ -166,6 +170,36 @@
             rooms.Add(newRoom);
             Console.WriteLine("\nNew room added successfully!");
         }
-    } 
+
+        //Case 02 Register New Guest
+        public static void registerNewGuest(List<Guest> guests)
+        {
+            
+            Console.Write("Enter Guest Name: ");
+            string guestName = Console.ReadLine();
+          
+            Console.Write("Enter Check-In Date (yyyy-mm-dd): ");
+            string checkInDate = Console.ReadLine();
+
+            Console.Write("Enter Total Nights: ");
+            int totalNights = int.Parse(Console.ReadLine());
+            if (totalNights <= 0)
+            {
+                Console.WriteLine("Invalid number of nights");
+                return;
+            }
+            string guestId = "G" + (guests.Count + 1).ToString("D3");
+
+            Guest newGuest = new Guest(guestId, guestName, "Not Assigned", checkInDate, totalNights);
+            guests.Add(newGuest);
+            Console.WriteLine("\nNew guest registered successfully!");
+            Console.WriteLine($"Guest ID: {guestId}");
+            Console.WriteLine($"Name: {guestName}");
+            Console.WriteLine($"Check-in Date: {checkInDate}");
+            Console.WriteLine($"Total Nights: {totalNights}");
+            Console.WriteLine($"Room: Not Assigned");
+
+        }
     }
+}
 
