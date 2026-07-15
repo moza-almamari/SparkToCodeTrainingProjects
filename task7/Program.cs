@@ -117,7 +117,7 @@ namespace task7
                     case 5: viewAllGuests(guests); break;
                     case 6: searchAndFilterRooms(rooms); break;
                     case 7: GuestBookingStatistics(guests, rooms); break;
-                    //case 8: 
+                    case 8: updateRoomPrice(rooms); break;
                     //case 9: 
                     //case 10: 
                     //case 11: 
@@ -433,7 +433,32 @@ namespace task7
             }
         }
 
+        //Case 08 Update Room Price
+        public static void updateRoomPrice(List<Room> rooms)
+        {
+            Console.Write("Enter Room Number: ");
+            int roomNumber = int.Parse(Console.ReadLine());
+            Room room = rooms.FirstOrDefault(r => r.roomNumber == roomNumber);
+            if (room == null)
+            {
+                Console.WriteLine("Room not found");
+                return;
+            }
 
+            double oldPrice = room.pricePerNight;
+            Console.Write("Enter New Price: ");
+            double newPrice = double.Parse(Console.ReadLine());
+            if (newPrice <= 0)
+            {
+                Console.WriteLine("Invalid price");
+                return;
+            }
+
+            room.pricePerNight = newPrice;
+            Console.WriteLine("Room price updated successfully!");
+            Console.WriteLine($"Old Price: {oldPrice:F2}");
+            Console.WriteLine($"New Price: {room.pricePerNight:F2}");
+        }
 
 
 
