@@ -113,7 +113,7 @@ namespace task7
                     case 1: addNewRoom(rooms); break;
                     case 2: registerNewGuest(guests); break;
                     case 3: bookRoom(rooms, guests); break;
-                    //case 4: 
+                    case 4: viewAllRooms(rooms); break;
                     //case 5: 
                     //case 6: 
                     //case 7: 
@@ -238,6 +238,31 @@ namespace task7
             Console.WriteLine($"Total Cost: {guest.calculateTotalCost(room.pricePerNight)}");
 
         }
+
+        //Case 04 View All Rooms
+        public static void viewAllRooms(List<Room> rooms)
+        {
+            if (rooms.Count() == 0)
+            {
+                Console.WriteLine("No rooms have been added yet.");
+                return;
+            }
+
+            Console.WriteLine($"Total Rooms: {rooms.Count()}");
+
+            var roomList = rooms.OrderBy(r => r.roomNumber)
+                .Select(r => $"Room: {r.roomNumber}  Type: {r.roomType}  Price: {r.pricePerNight}  Status: {(r.isAvailable ? "Available" : "Booked")}");
+
+            foreach (string room in roomList)
+            {
+                Console.WriteLine(room);
+            }
+        }
+
+
+
+
+
     }
 }
 
