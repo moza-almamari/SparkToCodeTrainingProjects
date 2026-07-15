@@ -118,7 +118,7 @@ namespace task7
                     case 6: searchAndFilterRooms(rooms); break;
                     case 7: GuestBookingStatistics(guests, rooms); break;
                     case 8: updateRoomPrice(rooms); break;
-                    //case 9: 
+                    case 9: GuestLookupByName(guests); break;
                     //case 10: 
                     //case 11: 
                     //case 12: 
@@ -460,6 +460,27 @@ namespace task7
             Console.WriteLine($"New Price: {room.pricePerNight:F2}");
         }
 
+        //Case 09 Guest Lookup by Name
+        public static void GuestLookupByName(List<Guest> guests)
+        {
+            Console.Write("Enter guest name or part of the name: ");
+            string search = Console.ReadLine();
+            var matchingGuests = guests
+                .Where(g => g.guestName.Contains(search, StringComparison.OrdinalIgnoreCase));
+
+            Console.WriteLine($"\nMatches Found: {matchingGuests.Count()}");
+
+            if (matchingGuests.Count() == 0)
+            {
+                Console.WriteLine("No guests matched that search");
+                return;
+            }
+
+            foreach (var guest in matchingGuests)
+            {
+                Console.WriteLine($"ID: {guest.guestId}  Name: {guest.guestName}  Room: {guest.roomNumber}");
+            }
+        }
 
 
     }
