@@ -536,7 +536,7 @@ namespace task7
                 Console.WriteLine("Room not found.");
                 return;
             }
-            Console.WriteLine("\n===== Final Bill =====");
+            Console.WriteLine("\nFinal Bill");
             Console.WriteLine($"Guest Name: {guest.guestName}");
             Console.WriteLine($"Room Number: {room.roomNumber}");
             Console.WriteLine($"Room Type: {room.roomType}");
