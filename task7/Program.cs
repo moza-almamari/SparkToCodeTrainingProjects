@@ -116,7 +116,7 @@ namespace task7
                     case 4: viewAllRooms(rooms); break;
                     case 5: viewAllGuests(guests); break;
                     case 6: searchAndFilterRooms(rooms); break;
-                    //case 7: 
+                    case 7: GuestBookingStatistics(guests, rooms); break;
                     //case 8: 
                     //case 9: 
                     //case 10: 
@@ -378,6 +378,58 @@ namespace task7
                 default:
                     Console.WriteLine("Invalid choice");
                     break;
+            }
+        }
+
+        //Case 07 Guest & Booking Statistics
+        public static void GuestBookingStatistics(List<Guest> guests, List<Room> rooms)
+        {
+            Console.WriteLine(" Guest & Booking Statistics ");
+            Console.WriteLine($"Total Guests: {guests.Count()}");
+            Console.WriteLine($"Guests With Booking: {guests.Count(g => g.roomNumber != "Not Assigned")}");
+
+            Console.WriteLine($"Total Rooms: {rooms.Count()}");
+            Console.WriteLine($"Booked Rooms: {rooms.Count(r => !r.isAvailable)}");
+            if (!guests.Any(g => g.roomNumber != "Not Assigned"))
+            {
+                Console.WriteLine("No active bookings recorded.");
+                return;
+            }
+
+            double averageNights = guests.Where(g => g.roomNumber != "Not Assigned")
+                .Average(g => g.totalNights);
+            Console.WriteLine($"Average Nights: {averageNights:F2}");
+            Console.WriteLine();
+
+            Console.WriteLine("Top 3 highest spending guests");
+            var topGuests = guests
+                .Where(g => g.roomNumber != "Not Assigned")
+                .OrderByDescending(g =>
+                    g.calculateTotalCost(
+                        rooms.First(r => r.roomNumber.ToString() == g.roomNumber).pricePerNight))
+                .Take(3);
+
+            foreach (var guest in topGuests)
+            {
+                Room room = rooms.First(r => r.roomNumber.ToString() == guest.roomNumber);
+
+                Console.WriteLine($"{guest.guestName}  Room {guest.roomNumber}  OMR {guest.calculateTotalCost(room.pricePerNight):F2}");
+            }
+
+            Console.WriteLine(" ");
+
+            var summary = guests
+                .Where(g => g.roomNumber != "Not Assigned")
+                .Select(g =>
+                {
+                    Room room = rooms.First(r => r.roomNumber.ToString() == g.roomNumber);
+
+                    return $"{g.guestName} — Room {g.roomNumber} — {g.totalNights} nights — OMR {g.calculateTotalCost(room.pricePerNight):F2}";
+                });
+
+            foreach (string line in summary)
+            {
+                Console.WriteLine(line);
             }
         }
 
