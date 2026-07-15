@@ -114,7 +114,7 @@ namespace task7
                     case 2: registerNewGuest(guests); break;
                     case 3: bookRoom(rooms, guests); break;
                     case 4: viewAllRooms(rooms); break;
-                    //case 5: 
+                    case 5: viewAllGuests(guests); break;
                     //case 6: 
                     //case 7: 
                     //case 8: 
@@ -256,6 +256,26 @@ namespace task7
             foreach (string room in roomList)
             {
                 Console.WriteLine(room);
+            }
+        }
+
+        //Case 05 View All Guests
+        public static void viewAllGuests(List<Guest> guests)
+        {
+            if (guests.Count() == 0)
+            {
+                Console.WriteLine("No guests have been registered yet.");
+                return;
+            }
+
+            Console.WriteLine($"Total Guests: {guests.Count()}");
+            var guestList = guests
+                .OrderBy(g => g.guestName)
+                .Select(g => $"ID: {g.guestId}  Name: {g.guestName}  Room: {g.roomNumber}  Check-In: {g.checkInDate}  Nights: {g.totalNights}");
+
+            foreach (string guest in guestList)
+            {
+                Console.WriteLine(guest);
             }
         }
 
