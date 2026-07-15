@@ -1,5 +1,13 @@
 <Solution>
+  <Project Path="oop_s2/oop_s2.csproj" Id="6d64d9c6-3024-421d-b75b-b3f51021c1f9" />
+  <Project Path="oop/oop.csproj" Id="ad4bc0da-286a-4215-a388-237721e6e9a2" />
+  <Project Path="bankingManagement/bankingManagement.csproj" Id="5a40a956-bb66-454b-88f0-1b17afc057d9" />
   <Project Path="session1_day4/session1_day4.csproj" Id="aab2144c-bd8d-4054-90a0-6a44bf7a9514" />
+  <Project Path="task 4/task 4.csproj" Id="5f7ceef4-5fd5-4d72-8a69-9932803bc603" />
+  <Project Path="task 2/task 2.csproj" Id="9c6591d8-a550-4cc1-9a75-db81f583a2d5" />
   <Project Path="Task1/Task1.csproj" Id="e40ad821-9319-44a0-9d19-c500b059e24b" />
   <Project Path="task7/HotelManagementSystem.csproj" Id="707e178b-0928-44e5-bc78-c0b14ce94ebe" />
+  <Project Path="task6/task6.csproj" Id="10e24d70-a01a-42c4-9aa3-c2b91b2bc5d8" />
+  <Project Path="task5/task5.csproj" Id="b9d2dad0-6441-42e4-af17-ed55a571c8e4" />
+  <Project Path="task3/task3.csproj" Id="5513f345-4ffc-469b-a10c-fe75186bb676" />
 </Solution>

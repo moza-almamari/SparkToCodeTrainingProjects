@@ -1,0 +1,294 @@
+﻿using System;
+using System.Collections.Generic;
+namespace BankingSystemApp
+{
+    internal class Program
+    {
+        // Shared data storage - declared at class level (static) so that
+        // EVERY function below can read and modify the same three lists
+        // without needing them passed in as parameters.
+        static List<string> customerNames = new List<string>();
+        static List<string> accountNumbers = new List<string>();
+        static List<double> balances = new List<double>();
+        static void Main(string[] args)
+        {
+            bool exitApp = false;
+            while (!exitApp)
+            {
+                Console.WriteLine("\n===== Welcome to Spark Bank =====");
+                Console.WriteLine("1. Add New Account");
+                Console.WriteLine("2. Deposit Money");
+                Console.WriteLine("3. Withdraw Money");
+                Console.WriteLine("4. Show Balance");
+                Console.WriteLine("5. Transfer Amount");
+                Console.WriteLine("6. List All Accounts");
+                Console.WriteLine("7. Find Richest Customer");
+                Console.WriteLine("8. Exit");
+                Console.Write("Choose an option: ");
+                int choice;
+                try
+                {
+
+                    choice = int.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid input. Please enter a number from 1 to 8.");
+                    continue; // skip the rest of this loop pass, show the menu again
+                }
+                switch (choice)
+                {
+                    case 1:
+                        AddAccount();
+                        break;
+                    case 2:
+                        DepositMoney();
+                        break;
+                    case 3:
+                        WithdrawMoney();
+                        break;
+                    case 4:
+                        ShowBalance();
+                        break;
+                    case 5:
+                        TransferAmount();
+                        break;
+                    case 6:
+                        // TODO: call your first custom service function here
+                        ListAllAccounts();
+                        break;
+                    case 7:
+                        // TODO: call your second custom service function here
+                        FindRichestCustomer();
+                        break;
+                    case 8:
+                        exitApp = true;
+                        Console.WriteLine("Thank you for banking with Spark Bank. Goodbye!");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option, please choose between 1 and 8.");
+                        break;
+                }
+            }
+        }
+        // ===================== SERVICE FUNCTIONS =====================
+        // Each function owns ONE service end-to-end: it asks the user for
+        // whatever it needs, validates it, updates the shared lists, and
+        // prints the outcome. Main never reads input or prints results
+        // for these services - it only shows the menu and calls them.
+        static void AddAccount()
+        {
+            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter customer name: ");
+            string name = Console.ReadLine();
+            Console.Write("Enter account number: ");
+            string account = Console.ReadLine();
+
+            if (accountNumbers.Contains(account))
+            {
+                Console.WriteLine("ERROR: Account number already exists.");
+                return;
+            }
+            double balance;
+            Console.Write("Enter initial balance: ");
+            try
+            {
+                balance = double.Parse(Console.ReadLine());
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("ERROR: Invalid balance input.");
+                return;
+            }
+            if (balance < 0)
+            {
+                Console.WriteLine("ERROR: Initial balance cannot be negative.");
+                return;
+            }
+            customerNames.Add(name);
+            accountNumbers.Add(account);
+            balances.Add(balance);
+            Console.WriteLine("\nAccount created successfully!");
+        }
+        static void DepositMoney()
+        {
+            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter account number: ");
+            string account = Console.ReadLine();
+            int index = accountNumbers.IndexOf(account);
+            if (index == -1)
+            {
+                Console.WriteLine("ERROR: Account number not found.");
+                return;
+            }
+            double amount;
+            Console.Write("Enter amount to deposit: ");
+            try
+            {
+                amount = double.Parse(Console.ReadLine());
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("ERROR: Invalid amount input.");
+                return;
+            }
+            if (amount < 0) {
+                Console.WriteLine("ERROR: Deposit amount must be positive."); 
+                return;
+            }
+            balances[index] += amount;
+            Console.WriteLine("\nDeposit successful!");
+            Console.WriteLine("Updated balance: " + balances[index]);
+        }
+
+            static void WithdrawMoney()
+            {
+            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter account number: ");
+            string account = Console.ReadLine();
+            int index = accountNumbers.IndexOf(account);
+            if (index == -1)
+            {
+                Console.WriteLine("ERROR: Account not found.");
+                return;
+            }
+            double amount;
+
+            Console.Write("Enter withdrawal amount: ");
+
+            try
+            {
+                amount = double.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("ERROR: Invalid amount.");
+                return;
+            }
+            if (amount < 0)
+            {
+                Console.WriteLine("ERROR: Withdrawal amount must be positive.");
+                return;
+            }
+            if (amount > balances[index])
+            {
+                Console.WriteLine("ERROR: Insufficient balance.");
+                return;
+            }
+            balances[index] -= amount;
+            Console.WriteLine("\nWithdrawal successful!");
+            Console.WriteLine("Updated balance: " + balances[index]);
+
+        }
+            static void ShowBalance()
+            {
+            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter account number: ");
+            string account = Console.ReadLine();
+            int index = accountNumbers.IndexOf(account);
+            if (index == -1)
+            {
+                Console.WriteLine("ERROR: Account not found.");
+                return;
+            }
+            Console.WriteLine("\nAccount Details:");
+            Console.WriteLine("Customer Name: " + customerNames[index]);
+            Console.WriteLine("Account Number: " + accountNumbers[index]);
+            Console.WriteLine("Balance: " + balances[index]);
+        }
+            static void TransferAmount()
+            {
+            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter sender account number: ");
+            string senderAccount = Console.ReadLine();
+
+            Console.Write("Enter receiver account number: ");
+            string receiverAccount = Console.ReadLine();
+
+            int senderIndex = accountNumbers.IndexOf(senderAccount);
+            int receiverIndex = accountNumbers.IndexOf(receiverAccount);
+
+            if (senderIndex == -1 || receiverIndex == -1)
+            {
+                Console.WriteLine("ERROR: One or both accounts were not found.");
+                return;
+            }
+            double amount;
+
+            Console.Write("Enter transfer amount: ");
+
+            try
+            {
+                amount = double.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("ERROR: Invalid amount.");
+                return;
+            }
+            if (amount <= 0)
+            {
+                Console.WriteLine("ERROR: Transfer amount must be positive.");
+                return;
+            }
+            if (amount > balances[senderIndex])
+            {
+                Console.WriteLine("ERROR: Sender does not have enough balance.");
+                return;
+            }
+            balances[senderIndex] -= amount;
+            balances[receiverIndex] += amount;
+            Console.WriteLine("\nTransfer successful!");
+            Console.WriteLine("Sender new balance: " + balances[senderIndex]);
+            Console.WriteLine("Receiver new balance: " + balances[receiverIndex]);
+
+        }
+        // TODO: write two more void, no-parameter functions here for
+        // your own custom services (option 6 and option 7)
+        static void ListAllAccounts()
+        {
+            if (customerNames.Count == 0)
+            {
+                Console.WriteLine("No accounts found.");
+                return;
+            }
+
+            Console.WriteLine("\nAll Accounts");
+
+            for (int i = 0; i < customerNames.Count; i++)
+            {
+                Console.WriteLine("\nAccount " + (i + 1));
+                Console.WriteLine("Customer Name: " + customerNames[i]);
+                Console.WriteLine("Account Number: " + accountNumbers[i]);
+                Console.WriteLine("Balance: " + balances[i]);
+            }
+        }
+        static void FindRichestCustomer()
+        {
+            if (customerNames.Count == 0)
+            {
+                Console.WriteLine("No accounts found.");
+                return;
+            }
+
+            int richestIndex = 0;
+
+            for (int i = 1; i < balances.Count; i++)
+            {
+                if (balances[i] > balances[richestIndex])
+                {
+                    richestIndex = i;
+                }
+            }
+
+            Console.WriteLine("\nRichest Customer");
+            Console.WriteLine("Customer Name: " + customerNames[richestIndex]);
+            Console.WriteLine("Account Number: " + accountNumbers[richestIndex]);
+            Console.WriteLine("Balance: " + balances[richestIndex]);
+        }
+
+
+    }
+    }

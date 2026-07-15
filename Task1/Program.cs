@@ -256,39 +256,40 @@
 
             //////////////////////////////////////////////////////////////////
 
-            //11- Loan Eligibility System
-            Console.Write("Enter your age: ");
-            int age = int.Parse(Console.ReadLine());
+            ////11- Loan Eligibility System
+            //Console.Write("Enter your age: ");
+            //int age = int.Parse(Console.ReadLine());
 
-            Console.Write("Enter your monthly income (OMR): ");
-            double income = double.Parse(Console.ReadLine());
+            //Console.Write("Enter your monthly income (OMR): ");
+            //double income = double.Parse(Console.ReadLine());
 
-            Console.Write("Do you have an existing loan? (yes/no): ");
-            string loan = Console.ReadLine().ToLower();
+            //Console.Write("Do you have an existing loan? (yes/no): ");
+            //string loan = Console.ReadLine().ToLower();
 
-            if (age >= 21 && age <= 60 && income >= 400 && !(loan == "yes"))
-            {
-                Console.WriteLine("You are eligible for the personal loan.");
-            }
-            else
-            {
-                Console.WriteLine("You are not eligible.");
+            //if (age >= 21 && age <= 60 && income >= 400 && !(loan == "yes"))
+            //{
+            //    Console.WriteLine("You are eligible for the personal loan.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("You are not eligible.");
 
-                if (age < 21 || age > 60)
-                {
-                    Console.WriteLine("Reason: Age is out of range.");
-                }
+            //    if (age < 21 || age > 60)
+            //    {
+            //        Console.WriteLine("Reason: Age is out of range.");
+            //    }
 
-                if (income < 400)
-                {
-                    Console.WriteLine("Reason: Income is too low.");
-                }
+            //    if (income < 400)
+            //    {
+            //        Console.WriteLine("Reason: Income is too low.");
+            //    }
 
-                if (loan == "yes")
-                {
-                    Console.WriteLine("Reason: You already have an existing loan.");
-                }
-            }
+            //    if (loan == "yes")
+            //    {
+            //        Console.WriteLine("Reason: You already have an existing loan.");
+            //    }
+            //}
+
         }
     }
 }
