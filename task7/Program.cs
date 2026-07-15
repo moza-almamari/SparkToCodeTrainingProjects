@@ -28,32 +28,32 @@ namespace task7
 
     public class Guest
     {
-        public string gustId { get; set; }
-        public string gustName { get; set; }
+        public string guestId { get; set; }
+        public string guestName { get; set; }
         public string roomNumber { get; set; }
         public string checkInDate { get; set; }
         public int totalNights { get; set; }
 
-        public Guest(string gustId, string gustName, string roomNumber, string checkInDate, int totalNights)
+        public Guest(string guestId, string guestName, string roomNumber, string checkInDate, int totalNights)
         {
-            this.gustId = gustId;
-            this.gustName = gustName;
+            this.guestId = guestId;
+            this.guestName = guestName;
             this.roomNumber = roomNumber;
             this.checkInDate = checkInDate;
             this.totalNights = totalNights;
         }
         public void displayGuest()
         {
-            Console.WriteLine($"Guest ID: {gustId}");
-            Console.WriteLine($"Guest Name: {gustName}");
+            Console.WriteLine($"Guest ID: {guestId}");
+            Console.WriteLine($"Guest Name: {guestName}");
             Console.WriteLine($"Room Number: {roomNumber}");
             Console.WriteLine($"Check In Date: {checkInDate}");
             Console.WriteLine($"Total Nights: {totalNights}");
         }
-        public void calculateTotalCost(double pricePerNight)
+        public double calculateTotalCost(double pricePerNight)
         {
             double totalCost = pricePerNight * totalNights;
-            Console.WriteLine($"Total Cost: {totalCost}");
+            return totalCost;
         }
 
     }
@@ -112,7 +112,7 @@ namespace task7
                 {
                     case 1: addNewRoom(rooms); break;
                     case 2: registerNewGuest(guests); break;
-                    //case 3: 
+                    case 3: bookRoom(rooms, guests); break;
                     //case 4: 
                     //case 5: 
                     //case 6: 
@@ -174,10 +174,10 @@ namespace task7
         //Case 02 Register New Guest
         public static void registerNewGuest(List<Guest> guests)
         {
-            
+
             Console.Write("Enter Guest Name: ");
             string guestName = Console.ReadLine();
-          
+
             Console.Write("Enter Check-In Date (yyyy-mm-dd): ");
             string checkInDate = Console.ReadLine();
 
@@ -198,6 +198,44 @@ namespace task7
             Console.WriteLine($"Check-in Date: {checkInDate}");
             Console.WriteLine($"Total Nights: {totalNights}");
             Console.WriteLine($"Room: Not Assigned");
+
+        }
+
+        //Case 03 Book a Room for a Guest
+        static void bookRoom(List<Room> rooms, List<Guest> guests)
+        {
+            Console.Write("Enter Guest ID: ");
+            string guestId = Console.ReadLine();
+            Guest guest = guests.FirstOrDefault(g => g.guestId == guestId);
+            if (guest == null)
+            {
+                Console.WriteLine("Guest not found");
+                return;
+            }
+
+            Console.Write("Enter Room Number: ");
+            int roomNumber = Convert.ToInt32(Console.ReadLine());
+            Room room = rooms.FirstOrDefault(r => r.roomNumber == roomNumber);
+            if (room == null)
+            {
+                Console.WriteLine("Room not found");
+                return;
+            }
+
+            if (!room.isAvailable)
+            {
+                Console.WriteLine("Room is already booked");
+                return;
+            }
+            guest.roomNumber = room.roomNumber.ToString();
+            room.isAvailable = false;
+            Console.WriteLine("\nBooking Confirmation");
+            Console.WriteLine($"Guest Name: {guest.guestName}");
+            Console.WriteLine($"Room Number: {room.roomNumber}");
+            Console.WriteLine($"Room Type: {room.roomType}");
+            Console.WriteLine($"Price Per Night: {room.pricePerNight}");
+            Console.WriteLine($"Total Nights: {guest.totalNights}");
+            Console.WriteLine($"Total Cost: {guest.calculateTotalCost(room.pricePerNight)}");
 
         }
     }
