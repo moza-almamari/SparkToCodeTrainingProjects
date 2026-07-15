@@ -119,7 +119,7 @@ namespace task7
                     case 7: GuestBookingStatistics(guests, rooms); break;
                     case 8: updateRoomPrice(rooms); break;
                     case 9: GuestLookupByName(guests); break;
-                    //case 10: 
+                    case 10: GuestLookupbyName(rooms); break;
                     //case 11: 
                     //case 12: 
                     //case 13: 
@@ -481,6 +481,37 @@ namespace task7
                 Console.WriteLine($"ID: {guest.guestId}  Name: {guest.guestName}  Room: {guest.roomNumber}");
             }
         }
+
+        //Case 10 Room Type Breakdown Report
+        public static void GuestLookupbyName(List<Room> rooms)
+        {
+            string[] roomTypes = { "Single", "Double", "Suite" };
+            Console.WriteLine("\nRoom Type Breakdown Report");
+
+            foreach (string type in roomTypes)
+            {
+                int count = rooms.Count(r => r.roomType.Equals(type, StringComparison.OrdinalIgnoreCase));
+
+                Console.WriteLine($"{type} Rooms: {count}");
+
+                if (count == 0)
+                {
+                    Console.WriteLine("Average Price: N/A");
+                }
+                else
+                {
+                    double average = rooms
+                        .Where(r => r.roomType.Equals(type, StringComparison.OrdinalIgnoreCase))
+                        .Average(r => r.pricePerNight);
+
+                    Console.WriteLine($"Average Price: {average:F2}");
+                }
+            }
+            double overallAverage = rooms.Average(r => r.pricePerNight);
+
+            Console.WriteLine($"Overall Average Price: {overallAverage:F2}");
+        }
+
 
 
     }
