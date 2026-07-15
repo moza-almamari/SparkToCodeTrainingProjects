@@ -61,6 +61,13 @@
             List<Room> rooms = new List<Room>();
             List<Guest> guests = new List<Guest>();
 
+            rooms.Add(new Room(101, "Single", 100.0, true));
+            rooms.Add(new Room(102, "Double", 200.0, true));
+            rooms.Add(new Room(103, "Suite", 400.0, true));
+            rooms.Add(new Room(104, "Single", 100.0, true));
+            rooms.Add(new Room(105, "Double", 200.0, true));
+            rooms.Add(new Room(106, "Suite", 400.0, true));
+
             bool exitApp = false;
 
             while (exitApp == false)
