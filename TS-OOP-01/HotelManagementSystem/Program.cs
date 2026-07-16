@@ -66,7 +66,7 @@ namespace HotelManagementSystem;
                     case 10: GuestLookupbyName(rooms); break;
                     case 11: CheckOutGuest(guests, rooms); break;
                     case 12: removeUnavailableRooms(rooms, guests); break;
-                //case 13: 
+                    case 13: extendGuestStay(guests, rooms); break;
                 //case 14: 
                 case 15:
 
@@ -553,7 +553,41 @@ namespace HotelManagementSystem;
             }
         }
 
+    //Case 13 Extend Guest Stay
+    public static void extendGuestStay(List<Guest> guests, List<Room> rooms)
+    {
+        Console.Write("Enter Guest ID: ");
+        string guestId = Console.ReadLine();
+        Guest guest = guests.FirstOrDefault(g => g.guestId == guestId);
+        if (guest == null)
+        {
+            Console.WriteLine("Guest not found");
+            return;
+        }
+        if (guest.roomNumber == "Not Assigned")
+        {
+            Console.WriteLine("This guest has no active booking to extend.");
+            return;
+        }
+        Console.Write("Enter additional nights: ");
+        if (!int.TryParse(Console.ReadLine(), out int additionalNights) || additionalNights <= 0)
+        {
+            Console.WriteLine("Invalid number of nights.");
+            return;
+        }
+        guest.totalNights += additionalNights;
+        Room room = rooms.FirstOrDefault(r => r.roomNumber.ToString() == guest.roomNumber);
+        if (room == null)
+        {
+            Console.WriteLine("Room not found.");
+            return;
+        }
 
+        Console.WriteLine("\nStay extended successfully!");
+        Console.WriteLine($"Guest: {guest.guestName}");
+        Console.WriteLine($"Updated Total Nights: {guest.totalNights}");
+        Console.WriteLine($"New Total Cost: OMR {guest.calculateTotalCost(room.pricePerNight):F2}");
+    }
 
 
 }
